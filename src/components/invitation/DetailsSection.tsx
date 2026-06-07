@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { MapPin, Clock } from "lucide-react";
+import { Clock, MapPin } from "lucide-react";
 import { FloralDivider } from "./FloralDivider";
 
 interface VenueInfo {
@@ -56,7 +56,11 @@ function VenueCard({
 
         <h3
           className="text-center text-3xl sm:text-4xl"
-          style={{ fontFamily: "var(--font-serif)", fontStyle: "italic", color: "#ece2d2" }}
+          style={{
+            fontFamily: "var(--font-serif)",
+            fontStyle: "italic",
+            color: "#ece2d2",
+          }}
         >
           {venue}
         </h3>
@@ -93,7 +97,7 @@ function VenueCard({
   );
 }
 
-export function DetailsSection({ ceremony, reception }: DetailsSectionProps) {
+export function DetailsSection({ ceremony }: DetailsSectionProps) {
   return (
     <section
       className="relative overflow-hidden px-6 py-24"
@@ -116,7 +120,11 @@ export function DetailsSection({ ceremony, reception }: DetailsSectionProps) {
           </p>
           <h2
             className="text-4xl sm:text-5xl"
-            style={{ fontFamily: "var(--font-serif)", fontStyle: "italic", color: "#d3b884" }}
+            style={{
+              fontFamily: "var(--font-serif)",
+              fontStyle: "italic",
+              color: "#d3b884",
+            }}
           >
             La location
           </h2>
@@ -126,9 +134,8 @@ export function DetailsSection({ ceremony, reception }: DetailsSectionProps) {
           <FloralDivider />
         </motion.div>
 
-        <div className="grid gap-8 md:grid-cols-2">
+        <div className="flex items-center">
           <VenueCard type="Cerimonia" {...ceremony} delay={0} />
-          <VenueCard type="Ricevimento" {...reception} delay={0.15} />
         </div>
       </div>
     </section>

@@ -12,14 +12,25 @@ interface HeroSectionProps {
 export function HeroSection({ groomName, brideName, date }: HeroSectionProps) {
   return (
     <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden">
-      {/* Background: photo with warm gradient fallback */}
+      {/* Background: looping video with warm gradient fallback */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0"
         style={{
-          backgroundImage: "url('/images/hero-bg.jpg')",
-          background: "url('/images/hero-bg.jpg') center/cover no-repeat, linear-gradient(160deg, #1a0d08 0%, #2e1810 25%, #4a2c18 50%, #3a2010 75%, #1a0d08 100%)",
+          background:
+            "linear-gradient(160deg, #1a0d08 0%, #2e1810 25%, #4a2c18 50%, #3a2010 75%, #1a0d08 100%)",
         }}
       />
+      <video
+        className="absolute inset-0 h-full w-full object-cover"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        aria-hidden="true"
+      >
+        <source src="/herobg.mp4" type="video/mp4" />
+      </video>
 
       {/* Warm overlay gradient */}
       <div
