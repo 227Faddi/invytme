@@ -29,19 +29,15 @@ export function MusicToggle({ src, playing }: { src: string; playing: boolean })
         <button
           onClick={toggle}
           aria-label={muted ? "Attiva musica" : "Disattiva musica"}
-          className="fixed bottom-6 left-6 z-50 flex items-center gap-2 py-2 px-3 text-xs transition-all"
+          className="fixed bottom-6 right-6 z-50 flex h-12 w-12 items-center justify-center rounded-full transition-all hover:scale-105"
           style={{
-            background: "rgba(26,13,8,0.75)",
-            border: "1px solid rgba(201,169,110,0.4)",
+            background: "rgba(21,18,14,0.8)",
+            border: "1px solid rgba(201,169,110,0.45)",
             color: "#c9a96e",
             backdropFilter: "blur(8px)",
-            letterSpacing: "0.12em",
           }}
         >
-          {muted ? <VolumeX size={14} /> : <Volume2 size={14} />}
-          <span className="hidden sm:inline uppercase text-xs" style={{ letterSpacing: "0.15em" }}>
-            {muted ? "Off" : "Musica"}
-          </span>
+          {muted ? <VolumeX size={16} /> : <Volume2 size={16} />}
         </button>
       )}
     </>

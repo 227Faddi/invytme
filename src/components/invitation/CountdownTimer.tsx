@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { FloralDivider } from "./FloralDivider";
 
 function getTimeLeft(target: Date) {
   const diff = target.getTime() - Date.now();
@@ -32,20 +31,9 @@ export function CountdownTimer({ targetDate }: { targetDate: Date }) {
 
   return (
     <section
-      style={{
-        background: "linear-gradient(180deg, #fdf8f2 0%, #f5eade 50%, #fdf8f2 100%)",
-      }}
+      style={{ background: "#15120e" }}
       className="relative overflow-hidden px-6 py-24"
     >
-      {/* Subtle dot texture */}
-      <div
-        className="absolute inset-0 pointer-events-none opacity-[0.03]"
-        style={{
-          backgroundImage: "radial-gradient(circle, #2c2010 1px, transparent 1px)",
-          backgroundSize: "28px 28px",
-        }}
-      />
-
       <motion.div
         className="relative mx-auto flex max-w-3xl flex-col items-center gap-12"
         initial={{ opacity: 0, y: 50 }}
@@ -56,50 +44,47 @@ export function CountdownTimer({ targetDate }: { targetDate: Date }) {
         {/* Heading */}
         <div className="flex flex-col items-center gap-3 text-center">
           <p
-            className="text-xs uppercase tracking-[0.4em]"
-            style={{ color: "#c9a96e" }}
+            className="text-xs uppercase"
+            style={{ color: "#c9a96e", letterSpacing: "0.4em" }}
           >
-            Manca poco
+            Il grande giorno si avvicina
           </p>
           <h2
-            className="text-3xl font-light sm:text-4xl"
-            style={{ fontFamily: "var(--font-serif)", color: "#2c2010" }}
+            className="text-4xl sm:text-5xl"
+            style={{ fontFamily: "var(--font-serif)", fontStyle: "italic", color: "#d3b884" }}
           >
-            Al grande giorno
+            Conto alla rovescia
           </h2>
-          <FloralDivider />
         </div>
 
-        {/* Countdown boxes */}
-        <div className="grid grid-cols-4 gap-4 sm:gap-8">
+        {/* Countdown boxes — connected row */}
+        <div
+          className="grid w-full max-w-2xl grid-cols-4"
+          style={{ border: "1px solid rgba(201,169,110,0.22)" }}
+        >
           {units.map(({ label, value }, i) => (
             <motion.div
               key={label}
-              className="flex flex-col items-center gap-3"
+              className="flex flex-col items-center justify-center gap-3 py-8 sm:py-10"
+              style={
+                i < units.length - 1
+                  ? { borderRight: "1px solid rgba(201,169,110,0.22)" }
+                  : undefined
+              }
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
             >
-              <div
-                className="flex h-20 w-20 items-center justify-center sm:h-24 sm:w-24"
-                style={{
-                  background: "linear-gradient(145deg, #fff9f4, #f5ead8)",
-                  border: "1px solid #d4b880",
-                  boxShadow:
-                    "0 4px 20px rgba(201,169,110,0.15), inset 0 1px 0 rgba(255,255,255,0.8)",
-                }}
+              <span
+                className="tabular-nums text-4xl sm:text-6xl"
+                style={{ fontFamily: "var(--font-serif)", color: "#ece2d2" }}
               >
-                <span
-                  className="tabular-nums text-3xl font-light sm:text-4xl"
-                  style={{ fontFamily: "var(--font-serif)", color: "#a8834a" }}
-                >
-                  {String(value).padStart(2, "0")}
-                </span>
-              </div>
+                {String(value).padStart(2, "0")}
+              </span>
               <p
-                className="text-xs uppercase tracking-widest"
-                style={{ color: "#8a7060", letterSpacing: "0.18em" }}
+                className="text-[0.65rem] uppercase"
+                style={{ color: "#9a9082", letterSpacing: "0.2em" }}
               >
                 {label}
               </p>

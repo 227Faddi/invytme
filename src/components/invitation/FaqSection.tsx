@@ -18,19 +18,8 @@ export function FaqSection({ items }: { items: FaqItem[] }) {
   return (
     <section
       className="relative overflow-hidden px-6 py-24"
-      style={{
-        background: "linear-gradient(180deg, #f5eade 0%, #efe3d0 50%, #f5eade 100%)",
-      }}
+      style={{ background: "#15120e" }}
     >
-      {/* Subtle texture */}
-      <div
-        className="absolute inset-0 pointer-events-none opacity-[0.025]"
-        style={{
-          backgroundImage: "radial-gradient(circle, #2c2010 1px, transparent 1px)",
-          backgroundSize: "24px 24px",
-        }}
-      />
-
       <div className="relative mx-auto max-w-2xl">
         {/* Heading */}
         <motion.div
@@ -47,10 +36,10 @@ export function FaqSection({ items }: { items: FaqItem[] }) {
             Tutto quello che c&apos;è da sapere
           </p>
           <h2
-            className="text-3xl font-light sm:text-4xl"
-            style={{ fontFamily: "var(--font-serif)", color: "#2c2010" }}
+            className="text-4xl sm:text-5xl"
+            style={{ fontFamily: "var(--font-serif)", fontStyle: "italic", color: "#d3b884" }}
           >
-            Domande Frequenti
+            Domande
           </h2>
           <FloralDivider />
         </motion.div>
@@ -68,25 +57,24 @@ export function FaqSection({ items }: { items: FaqItem[] }) {
                 value={`item-${i}`}
                 className="overflow-hidden"
                 style={{
-                  background: "linear-gradient(145deg, #fff9f4, #fdf5ec)",
-                  border: "1px solid #d4b880",
-                  boxShadow: "0 2px 12px rgba(44,32,16,0.06)",
+                  background: "#1e1a15",
+                  border: "1px solid rgba(201,169,110,0.18)",
                 }}
               >
                 <AccordionTrigger
-                  className="px-6 py-4 text-left text-sm hover:no-underline"
+                  className="px-6 py-4 text-left hover:no-underline"
                   style={{
                     fontFamily: "var(--font-serif)",
-                    color: "#2c2010",
+                    color: "#ece2d2",
                     fontWeight: 400,
-                    fontSize: "1rem",
+                    fontSize: "1.15rem",
                   }}
                 >
                   {item.question}
                 </AccordionTrigger>
                 <AccordionContent
                   className="px-6 pb-5 text-sm leading-relaxed"
-                  style={{ color: "#6a5040" }}
+                  style={{ color: "#9a9082" }}
                 >
                   {item.answer}
                 </AccordionContent>

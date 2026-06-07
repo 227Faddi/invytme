@@ -50,14 +50,14 @@ function AttendingOption({
         selected
           ? {
               background: "linear-gradient(135deg, #c9a96e, #a8834a)",
-              color: "#fff9f4",
-              border: "1px solid #a8834a",
-              boxShadow: "0 4px 16px rgba(168,131,74,0.3)",
+              color: "#15120e",
+              border: "1px solid #c9a96e",
+              boxShadow: "0 4px 16px rgba(201,169,110,0.25)",
             }
           : {
               background: "transparent",
-              color: "#6a5040",
-              border: "1px solid #d4b880",
+              color: "#9a9082",
+              border: "1px solid rgba(201,169,110,0.3)",
             }
       }
     >
@@ -78,11 +78,11 @@ function Field({
 }) {
   return (
     <div className="space-y-1.5">
-      <Label className="text-xs uppercase tracking-widest" style={{ color: "#8a7060", letterSpacing: "0.15em" }}>
+      <Label className="text-xs uppercase tracking-widest" style={{ color: "#9a9082", letterSpacing: "0.15em" }}>
         {label}
       </Label>
       {children}
-      {error && <p className="text-xs" style={{ color: "#c4887a" }}>{error}</p>}
+      {error && <p className="text-xs" style={{ color: "#d99a8a" }}>{error}</p>}
     </div>
   );
 }
@@ -138,10 +138,7 @@ export function RsvpForm() {
   /* ── Success state ── */
   if (submitted) {
     return (
-      <section
-        className="px-6 py-24"
-        style={{ background: "linear-gradient(180deg, #fdf8f2 0%, #f5eade 100%)" }}
-      >
+      <section className="px-6 py-24" style={{ background: "#15120e" }}>
         <div className="mx-auto max-w-lg text-center">
           <motion.div
             className="flex flex-col items-center gap-5"
@@ -151,13 +148,13 @@ export function RsvpForm() {
           >
             <CheckCircle2 size={56} style={{ color: "#c9a96e" }} />
             <h2
-              className="text-3xl font-light"
-              style={{ fontFamily: "var(--font-serif)", color: "#2c2010" }}
+              className="text-4xl sm:text-5xl"
+              style={{ fontFamily: "var(--font-serif)", fontStyle: "italic", color: "#d3b884" }}
             >
               Grazie mille!
             </h2>
             <FloralDivider />
-            <p className="text-sm leading-relaxed" style={{ color: "#6a5040" }}>
+            <p className="text-sm leading-relaxed" style={{ color: "#9a9082" }}>
               La tua risposta è stata ricevuta con gioia.<br />Non vediamo l&apos;ora di festeggiare insieme.
             </p>
           </motion.div>
@@ -168,10 +165,10 @@ export function RsvpForm() {
 
   /* ── Form ── */
   const inputStyle = {
-    background: "#fff9f4",
-    border: "1px solid #d4b880",
+    background: "#15120e",
+    border: "1px solid rgba(201,169,110,0.3)",
     borderRadius: 0,
-    color: "#2c2010",
+    color: "#ece2d2",
     fontSize: "0.875rem",
   };
 
@@ -181,7 +178,7 @@ export function RsvpForm() {
     <section
       id="rsvp"
       className="relative overflow-hidden px-6 py-24"
-      style={{ background: "linear-gradient(180deg, #fdf8f2 0%, #f5eade 100%)" }}
+      style={{ background: "#15120e" }}
     >
       <div className="mx-auto max-w-xl">
         {/* Heading */}
@@ -199,15 +196,15 @@ export function RsvpForm() {
             La vostra presenza è un dono
           </p>
           <h2
-            className="text-3xl font-light sm:text-4xl"
-            style={{ fontFamily: "var(--font-serif)", color: "#2c2010" }}
+            className="text-4xl sm:text-5xl"
+            style={{ fontFamily: "var(--font-serif)", fontStyle: "italic", color: "#d3b884" }}
           >
             Conferma la tua presenza
           </h2>
           <FloralDivider />
-          <p className="text-sm" style={{ color: "#8a7060" }}>
+          <p className="text-sm" style={{ color: "#9a9082" }}>
             Vi preghiamo di rispondere entro il{" "}
-            <span style={{ color: "#2c2010" }}>31 maggio 2026</span>
+            <span style={{ color: "#ece2d2" }}>30 aprile 2026</span>
           </p>
         </motion.div>
 
@@ -218,9 +215,9 @@ export function RsvpForm() {
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.8, delay: 0.1 }}
           style={{
-            background: "linear-gradient(180deg, #fff9f4 0%, #fdf5ec 100%)",
-            border: "1px solid #d4b880",
-            boxShadow: "0 8px 50px rgba(44,32,16,0.1)",
+            background: "#1e1a15",
+            border: "1px solid rgba(201,169,110,0.18)",
+            boxShadow: "0 8px 50px rgba(0,0,0,0.4)",
           }}
           className="p-8 sm:p-10"
         >
@@ -249,7 +246,7 @@ export function RsvpForm() {
 
               {/* Attending */}
               <div className="space-y-2">
-                <p className="text-xs uppercase tracking-widest" style={{ color: "#8a7060", letterSpacing: "0.15em" }}>
+                <p className="text-xs uppercase tracking-widest" style={{ color: "#9a9082", letterSpacing: "0.15em" }}>
                   Partecipi?
                 </p>
                 <div className="flex gap-0">
@@ -301,13 +298,13 @@ export function RsvpForm() {
                 className="mt-2 w-full py-4 text-xs uppercase tracking-[0.25em] font-light transition-all duration-200 disabled:opacity-60"
                 style={{
                   background: isSubmitting
-                    ? "#d4b880"
-                    : "linear-gradient(135deg, #c9a96e, #a8834a)",
-                  color: "#fff9f4",
+                    ? "#6b5a3a"
+                    : "linear-gradient(135deg, #d3b884, #a8834a)",
+                  color: "#15120e",
                   letterSpacing: "0.25em",
                   boxShadow: isSubmitting
                     ? "none"
-                    : "0 4px 20px rgba(168,131,74,0.35)",
+                    : "0 4px 20px rgba(201,169,110,0.3)",
                 }}
               >
                 {isSubmitting ? (

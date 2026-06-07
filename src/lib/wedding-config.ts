@@ -1,40 +1,59 @@
 export const weddingConfig = {
-  groomName: "Nome Sposo",
-  brideName: "Nome Sposa",
-  initials: "N & N",
-  date: "28 Giugno 2026",
-  weddingDate: new Date("2026-06-28T16:00:00"),
-  city: "Città",
-  ceremonyVenue: "Nome Chiesa",
+  groomName: "Simone",
+  brideName: "Claudia",
+  initials: "C & S",
+  date: "31 Maggio 2026",
+  dateShort: "31 · 05 · 2026",
+  weddingDate: new Date("2026-05-31T16:00:00"),
+  city: "Italia",
+
+  // Ceremony
+  ceremonyVenue: "Chiesa di Santa Maria",
   ceremonyAddress: "Via Roma 1, Città",
   ceremonyTime: "16:00",
   ceremonyMapEmbedUrl:
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2796.0!2d12.4922!3d41.8902!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDUzJzI0LjciTiAxMsKwMjknMzIuMCJF!5e0!3m2!1sit!2sit!4v1234567890",
-  receptionVenue: "Nome Location",
-  receptionAddress: "Via dei Fiori 10, Città",
+
+  // Reception
+  receptionVenue: "Villa Mare",
+  receptionAddress: "Via del Mare 10, Città",
   receptionTime: "19:00",
   receptionMapEmbedUrl:
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2796.0!2d12.4922!3d41.8902!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDUzJzI0LjciTiAxMsKwMjknMzIuMCJF!5e0!3m2!1sit!2sit!4v1234567891",
+
+  // FAQ
   faqItems: [
     {
       question: "Dove posso parcheggiare?",
       answer:
-        "È disponibile un ampio parcheggio gratuito presso entrambe le location. Potete parcheggiare direttamente nei pressi della chiesa e della villa.",
-    },
-    {
-      question: "Sono disponibili sistemazioni nelle vicinanze?",
-      answer:
-        "Sì, abbiamo riservato un numero di camere presso l'Hotel XYZ a tariffa agevolata per gli ospiti. Contattate direttamente l'hotel citando il nostro matrimonio per usufruire della tariffa speciale.",
+        "È disponibile un ampio parcheggio gratuito presso la location. Potete parcheggiare direttamente nei pressi della villa.",
     },
     {
       question: "Qual è il dress code?",
       answer:
-        "Il dress code è elegante. Vi chiediamo di evitare il bianco e il nero puro. Sentitevi liberi di esprimere la vostra personalità con colori e stili che si addicono all'occasione.",
+        "Il dress code è elegante. Vi chiediamo gentilmente di evitare il bianco. Sentitevi liberi di esprimere la vostra personalità con colori e stili adatti all'occasione.",
     },
     {
       question: "I bambini sono benvenuti?",
       answer:
-        "I bambini sono i benvenuti alla cerimonia. Per il ricevimento, vi chiediamo di contattarci in anticipo per comunicarci la presenza di bambini, così potremo organizzarci al meglio.",
+        "I bambini sono i benvenuti. Per il ricevimento vi chiediamo di comunicarci in anticipo la loro presenza, così potremo organizzarci al meglio.",
+    },
+    {
+      question: "È prevista una lista nozze?",
+      answer:
+        "Il vostro affetto è il dono più grande. Per chi lo desidera, trovate i dettagli nella sezione Regali qui sotto.",
     },
   ],
+
+  // Gifts / Regali
+  giftEnabled: true,
+  giftBlurb:
+    "Se vorrete farci un dono, accompagnateci nel nostro viaggio di nozze. Sarà il primo orizzonte che guarderemo insieme.",
+  giftCardTitle: "Contributo",
+  giftDescription:
+    "Per chi lo desidera, contributo in busta il giorno delle nozze oppure tramite bonifico.",
+  giftIban: "IT 1234 5678 9101 1121 3141 516",
+
+  // Footer
+  footerMessage: "Vi aspettiamo.",
 };

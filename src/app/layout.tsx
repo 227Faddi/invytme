@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist_Mono, Lato, Playfair_Display } from "next/font/google";
+import { Cormorant_Garamond, Geist_Mono, Lato } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Toaster } from "@/components/ui/sonner";
@@ -10,8 +10,10 @@ const lato = Lato({
   variable: "--font-sans",
 });
 
-const playfair = Playfair_Display({
+const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+  style: ["normal", "italic"],
   variable: "--font-serif",
 });
 
@@ -21,8 +23,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Invito di Matrimonio",
-  description: "Siete invitati al nostro matrimonio",
+  title: "Claudia & Simone — Il Nostro Matrimonio | 31 Maggio 2026",
+  description: "Siete invitati al matrimonio di Claudia & Simone",
 };
 
 export default function RootLayout({
@@ -36,7 +38,7 @@ export default function RootLayout({
       className={cn(
         "h-full antialiased",
         lato.variable,
-        playfair.variable,
+        cormorant.variable,
         geistMono.variable
       )}
     >

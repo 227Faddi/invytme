@@ -1,6 +1,6 @@
-import { NextRequest } from "next/server";
 import FormData from "form-data";
 import Mailgun from "mailgun.js";
+import { NextRequest } from "next/server";
 
 type ExtraGuest = { name?: string; dietary?: string };
 
@@ -50,7 +50,7 @@ export async function POST(request: NextRequest) {
         🍽️ Intolleranze/allergie: ${dietary?.trim() || "Nessuna"}
 
         👥 Ospiti aggiuntivi:
-${guestsText}
+          ${guestsText}
 
         💬 Messaggio: ${message?.trim() || "Nessun messaggio"}
         `,

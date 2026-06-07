@@ -7,10 +7,9 @@ interface HeroSectionProps {
   groomName: string;
   brideName: string;
   date: string;
-  city: string;
 }
 
-export function HeroSection({ groomName, brideName, date, city }: HeroSectionProps) {
+export function HeroSection({ groomName, brideName, date }: HeroSectionProps) {
   return (
     <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden">
       {/* Background: photo with warm gradient fallback */}
@@ -46,50 +45,44 @@ export function HeroSection({ groomName, brideName, date, city }: HeroSectionPro
       />
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col items-center gap-5 px-6 text-center">
+      <div className="relative z-10 flex flex-col items-center gap-4 px-6 text-center">
         {/* Top label */}
         <motion.p
           initial={{ opacity: 0, letterSpacing: "0.6em" }}
-          animate={{ opacity: 1, letterSpacing: "0.35em" }}
+          animate={{ opacity: 1, letterSpacing: "0.4em" }}
           transition={{ duration: 1.4, delay: 0.2 }}
-          className="text-xs font-light uppercase"
-          style={{ color: "rgba(201,169,110,0.8)", letterSpacing: "0.35em" }}
+          className="text-[0.7rem] font-light uppercase"
+          style={{ color: "rgba(201,169,110,0.85)", letterSpacing: "0.4em" }}
         >
-          Insieme per sempre
+          Ci aspettiamo
         </motion.p>
-
-        {/* Gold line */}
-        <motion.div
-          initial={{ scaleX: 0, opacity: 0 }}
-          animate={{ scaleX: 1, opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="h-px w-16"
-          style={{ background: "linear-gradient(to right, transparent, #c9a96e, transparent)" }}
-        />
 
         {/* Names */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.1, delay: 0.7 }}
-          className="flex flex-col items-center gap-1"
+          transition={{ duration: 1.1, delay: 0.6 }}
+          className="flex flex-col items-center"
         >
           <h1
-            className="font-light leading-none tracking-wide"
+            className="leading-[1.05] tracking-wide"
             style={{
               fontFamily: "var(--font-serif)",
-              fontSize: "clamp(3rem, 10vw, 7rem)",
-              color: "#fdf0dc",
+              fontStyle: "italic",
+              fontWeight: 400,
+              fontSize: "clamp(3rem, 10vw, 6.5rem)",
+              color: "#f3ead9",
               textShadow: "0 2px 30px rgba(0,0,0,0.5)",
             }}
           >
-            {groomName}
+            {brideName}
           </h1>
           <span
-            className="font-light"
+            className="my-1"
             style={{
               fontFamily: "var(--font-serif)",
-              fontSize: "clamp(1.8rem, 5vw, 3.5rem)",
+              fontStyle: "italic",
+              fontSize: "clamp(1.6rem, 4.5vw, 3rem)",
               color: "#c9a96e",
               textShadow: "0 2px 20px rgba(0,0,0,0.4)",
             }}
@@ -97,61 +90,59 @@ export function HeroSection({ groomName, brideName, date, city }: HeroSectionPro
             &amp;
           </span>
           <h1
-            className="font-light leading-none tracking-wide"
+            className="leading-[1.05] tracking-wide"
             style={{
               fontFamily: "var(--font-serif)",
-              fontSize: "clamp(3rem, 10vw, 7rem)",
-              color: "#fdf0dc",
+              fontStyle: "italic",
+              fontWeight: 400,
+              fontSize: "clamp(3rem, 10vw, 6.5rem)",
+              color: "#f3ead9",
               textShadow: "0 2px 30px rgba(0,0,0,0.5)",
             }}
           >
-            {brideName}
+            {groomName}
           </h1>
         </motion.div>
 
-        {/* Gold line */}
+        {/* Ornament */}
         <motion.div
-          initial={{ scaleX: 0, opacity: 0 }}
-          animate={{ scaleX: 1, opacity: 1 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 1.4 }}
-          className="h-px w-16"
-          style={{ background: "linear-gradient(to right, transparent, #c9a96e, transparent)" }}
-        />
+          className="flex items-center gap-3"
+          aria-hidden="true"
+        >
+          <div className="h-px w-10" style={{ background: "linear-gradient(to right, transparent, #c9a96e)" }} />
+          <div className="h-1 w-1 rotate-45" style={{ background: "#c9a96e" }} />
+          <div className="h-px w-10" style={{ background: "linear-gradient(to left, transparent, #c9a96e)" }} />
+        </motion.div>
 
-        {/* Date & city */}
-        <motion.div
+        {/* Date */}
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 1.6 }}
-          className="flex flex-col items-center gap-1"
+          className="text-xs font-light uppercase sm:text-sm"
+          style={{ color: "rgba(201,169,110,0.85)", letterSpacing: "0.35em" }}
         >
-          <p
-            className="text-xl font-light tracking-widest sm:text-2xl"
-            style={{ color: "rgba(253,240,220,0.9)" }}
-          >
-            {date}
-          </p>
-          <p
-            className="text-xs font-light uppercase tracking-[0.3em]"
-            style={{ color: "rgba(201,169,110,0.7)" }}
-          >
-            {city}
-          </p>
-        </motion.div>
+          {date}
+        </motion.p>
       </div>
 
-      {/* Scroll arrow */}
+      {/* Page marker */}
       <motion.div
-        className="absolute bottom-8 z-10 flex flex-col items-center gap-1"
+        className="absolute bottom-6 right-6 z-10 flex items-center gap-2"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 2.2, duration: 1 }}
-        style={{ color: "rgba(201,169,110,0.7)" }}
+        transition={{ delay: 2, duration: 1 }}
       >
-        <p className="text-xs tracking-widest uppercase" style={{ letterSpacing: "0.25em" }}>
-          Scorri
-        </p>
-        <ChevronDown size={18} className="animate-bounce" />
+        <span
+          className="text-xs tracking-widest"
+          style={{ fontFamily: "var(--font-serif)", color: "rgba(201,169,110,0.8)" }}
+        >
+          01
+        </span>
+        <ChevronDown size={14} className="animate-bounce" style={{ color: "rgba(201,169,110,0.7)" }} />
       </motion.div>
     </section>
   );

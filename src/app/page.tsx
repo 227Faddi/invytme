@@ -7,7 +7,7 @@ import { CountdownTimer } from "@/components/invitation/CountdownTimer";
 import { DetailsSection } from "@/components/invitation/DetailsSection";
 import { FaqSection } from "@/components/invitation/FaqSection";
 import { RsvpForm } from "@/components/invitation/RsvpForm";
-import { FloralDivider } from "@/components/invitation/FloralDivider";
+import { GiftsSection } from "@/components/invitation/GiftsSection";
 import { weddingConfig } from "@/lib/wedding-config";
 
 export default function Home() {
@@ -32,15 +32,9 @@ export default function Home() {
           groomName={weddingConfig.groomName}
           brideName={weddingConfig.brideName}
           date={weddingConfig.date}
-          city={weddingConfig.city}
         />
 
         <CountdownTimer targetDate={weddingConfig.weddingDate} />
-
-        {/* Section break */}
-        <div style={{ background: "#f5eade" }} className="py-6">
-          <FloralDivider />
-        </div>
 
         <DetailsSection
           ceremony={{
@@ -57,38 +51,42 @@ export default function Home() {
           }}
         />
 
-        <FaqSection items={weddingConfig.faqItems} />
-
-        {/* Section break */}
-        <div style={{ background: "#fdf8f2" }} className="py-6">
-          <FloralDivider />
-        </div>
-
         <RsvpForm />
 
+        <FaqSection items={weddingConfig.faqItems} />
+
+        {weddingConfig.giftEnabled && (
+          <GiftsSection
+            blurb={weddingConfig.giftBlurb}
+            cardTitle={weddingConfig.giftCardTitle}
+            description={weddingConfig.giftDescription}
+            iban={weddingConfig.giftIban}
+          />
+        )}
+
         {/* Footer */}
-        <footer
-          className="py-14 text-center"
-          style={{
-            background: "linear-gradient(160deg, #1a0d08 0%, #2e1a0e 50%, #1a0d08 100%)",
-          }}
-        >
-          <div className="flex flex-col items-center gap-3">
+        <footer className="px-6 py-16" style={{ background: "#15120e" }}>
+          <div className="mx-auto flex max-w-5xl flex-col gap-3">
             <p
-              className="text-2xl font-light"
-              style={{ fontFamily: "var(--font-serif)", color: "#f0d8b0" }}
+              className="text-3xl sm:text-4xl"
+              style={{ fontFamily: "var(--font-serif)", fontStyle: "italic", color: "#ece2d2" }}
             >
-              {weddingConfig.groomName} &amp; {weddingConfig.brideName}
+              {weddingConfig.footerMessage}
             </p>
-            <div
-              className="h-px w-16"
-              style={{ background: "linear-gradient(to right, transparent, #c9a96e, transparent)" }}
-            />
+            <p className="text-sm" style={{ color: "#9a9082" }}>
+              Con amore,
+            </p>
             <p
-              className="text-xs uppercase tracking-[0.3em]"
-              style={{ color: "rgba(201,169,110,0.7)" }}
+              className="text-lg"
+              style={{ fontFamily: "var(--font-serif)", fontStyle: "italic", color: "#c9a96e" }}
             >
-              {weddingConfig.date}
+              {weddingConfig.brideName} &amp; {weddingConfig.groomName}
+            </p>
+            <p
+              className="mt-6 text-xs uppercase tracking-[0.3em]"
+              style={{ color: "rgba(201,169,110,0.6)" }}
+            >
+              {weddingConfig.dateShort}
             </p>
           </div>
         </footer>

@@ -8,10 +8,10 @@ import { Textarea } from "@/components/ui/textarea";
 import type { RsvpFormValues } from "./RsvpForm";
 
 const inputStyle = {
-  background: "#fff9f4",
-  border: "1px solid #d4b880",
+  background: "#15120e",
+  border: "1px solid rgba(201,169,110,0.3)",
   borderRadius: 0,
-  color: "#2c2010",
+  color: "#ece2d2",
   fontSize: "0.875rem",
 };
 
@@ -22,7 +22,7 @@ export function ExtraGuestFields() {
   return (
     <div className="space-y-4">
       <div className="flex items-center justify-between">
-        <p className="text-xs uppercase tracking-widest" style={{ color: "#8a7060", letterSpacing: "0.15em" }}>
+        <p className="text-xs uppercase tracking-widest" style={{ color: "#9a9082", letterSpacing: "0.15em" }}>
           Ospiti aggiuntivi
         </p>
         <button
@@ -30,8 +30,8 @@ export function ExtraGuestFields() {
           onClick={() => append({ name: "", dietary: "" })}
           className="flex items-center gap-1.5 text-xs uppercase tracking-wider py-1.5 px-3 transition-colors"
           style={{
-            border: "1px solid #c9a96e",
-            color: "#a8834a",
+            border: "1px solid rgba(201,169,110,0.4)",
+            color: "#c9a96e",
             background: "transparent",
             letterSpacing: "0.15em",
           }}
@@ -42,7 +42,7 @@ export function ExtraGuestFields() {
       </div>
 
       {fields.length === 0 && (
-        <p className="text-center text-xs py-2" style={{ color: "#a89080" }}>
+        <p className="text-center text-xs py-2" style={{ color: "#6f675c" }}>
           Nessun ospite aggiuntivo — clicca &ldquo;Aggiungi&rdquo; per inserirne uno.
         </p>
       )}
@@ -51,7 +51,7 @@ export function ExtraGuestFields() {
         <div
           key={field.id}
           className="relative space-y-3 p-4"
-          style={{ background: "#fdf5ec", border: "1px solid #e0cdb8" }}
+          style={{ background: "#15120e", border: "1px solid rgba(201,169,110,0.18)" }}
         >
           <div className="flex items-center justify-between">
             <p className="text-xs uppercase tracking-widest" style={{ color: "#c9a96e", letterSpacing: "0.15em" }}>
@@ -61,7 +61,7 @@ export function ExtraGuestFields() {
               type="button"
               onClick={() => remove(index)}
               className="transition-colors"
-              style={{ color: "#a89080" }}
+              style={{ color: "#9a9082" }}
               aria-label="Rimuovi ospite"
             >
               <Trash2 size={13} />
@@ -69,7 +69,7 @@ export function ExtraGuestFields() {
           </div>
 
           <div className="space-y-1.5">
-            <Label className="text-xs" style={{ color: "#8a7060" }}>Nome completo *</Label>
+            <Label className="text-xs" style={{ color: "#9a9082" }}>Nome completo *</Label>
             <Input
               {...register(`extraGuests.${index}.name`)}
               placeholder="Nome e cognome"
@@ -78,7 +78,7 @@ export function ExtraGuestFields() {
             />
           </div>
           <div className="space-y-1.5">
-            <Label className="text-xs" style={{ color: "#8a7060" }}>Allergie</Label>
+            <Label className="text-xs" style={{ color: "#9a9082" }}>Allergie</Label>
             <Textarea
               {...register(`extraGuests.${index}.dietary`)}
               placeholder="Intolleranze o allergie..."

@@ -45,44 +45,46 @@
 }
 
 :root {
-  --background: #fdf8f2;
-  --foreground: #2c2010;
-  --card: #fff9f4;
-  --card-foreground: #2c2010;
-  --popover: #fff9f4;
-  --popover-foreground: #2c2010;
-  --primary: #b8965a;
-  --primary-foreground: #fff9f4;
-  --secondary: #f5eade;
-  --secondary-foreground: #4a3520;
-  --muted: #f0e6d8;
-  --muted-foreground: #8a7060;
-  --accent: #e8d5c0;
-  --accent-foreground: #4a3520;
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: #e0cdb8;
-  --input: #e8d8c8;
+  /* Dark luxury theme */
+  --background: #15120e;
+  --foreground: #ece2d2;
+  --card: #1e1a15;
+  --card-foreground: #ece2d2;
+  --popover: #1e1a15;
+  --popover-foreground: #ece2d2;
+  --primary: #c9a96e;
+  --primary-foreground: #15120e;
+  --secondary: #1a1612;
+  --secondary-foreground: #ece2d2;
+  --muted: #221d17;
+  --muted-foreground: #9a9082;
+  --accent: #2a241c;
+  --accent-foreground: #ece2d2;
+  --destructive: oklch(0.6 0.2 25);
+  --border: rgba(201, 169, 110, 0.18);
+  --input: rgba(201, 169, 110, 0.25);
   --ring: #c9a96e;
   --radius: 0.5rem;
-  --sidebar: #fdf8f2;
-  --sidebar-foreground: #2c2010;
-  --sidebar-primary: #b8965a;
-  --sidebar-primary-foreground: #fff9f4;
-  --sidebar-accent: #f5eade;
-  --sidebar-accent-foreground: #4a3520;
-  --sidebar-border: #e0cdb8;
+  --sidebar: #15120e;
+  --sidebar-foreground: #ece2d2;
+  --sidebar-primary: #c9a96e;
+  --sidebar-primary-foreground: #15120e;
+  --sidebar-accent: #1a1612;
+  --sidebar-accent-foreground: #ece2d2;
+  --sidebar-border: rgba(201, 169, 110, 0.18);
   --sidebar-ring: #c9a96e;
 
   /* Wedding palette — raw values for use in SVG and inline styles */
-  --w-ivory: #fdf8f2;
-  --w-cream: #f5eade;
-  --w-warm: #f0e0cc;
+  --w-bg: #15120e;
+  --w-bg-soft: #1a1612;
+  --w-card: #1e1a15;
+  --w-border: rgba(201, 169, 110, 0.18);
   --w-gold: #c9a96e;
+  --w-gold-bright: #d3b884;
   --w-gold-dark: #a8834a;
-  --w-blush: #e8c4b4;
-  --w-rose: #c4887a;
-  --w-brown: #2c2010;
-  --w-brown-mid: #4a3520;
+  --w-cream: #ece2d2;
+  --w-muted: #9a9082;
+  --w-sage: #9aa382;
 }
 
 @layer base {
@@ -90,8 +92,8 @@
     @apply border-border outline-ring/50;
   }
   body {
-    background: var(--w-ivory);
-    color: var(--w-brown);
+    background: var(--w-bg);
+    color: var(--w-cream);
     font-family: var(--font-sans);
   }
 }

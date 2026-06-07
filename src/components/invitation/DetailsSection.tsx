@@ -28,9 +28,9 @@ function VenueCard({
     <motion.div
       className="flex flex-col overflow-hidden"
       style={{
-        background: "linear-gradient(180deg, #fff9f4 0%, #fdf5ec 100%)",
-        border: "1px solid #d4b880",
-        boxShadow: "0 8px 40px rgba(44,32,16,0.08)",
+        background: "#1e1a15",
+        border: "1px solid rgba(201,169,110,0.18)",
+        boxShadow: "0 8px 40px rgba(0,0,0,0.35)",
       }}
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -40,7 +40,7 @@ function VenueCard({
       {/* Card header */}
       <div
         className="flex flex-col items-center gap-2 px-6 py-8"
-        style={{ borderBottom: "1px solid #e8d5b8" }}
+        style={{ borderBottom: "1px solid rgba(201,169,110,0.15)" }}
       >
         {/* Type label */}
         <div className="flex items-center gap-3">
@@ -55,15 +55,15 @@ function VenueCard({
         </div>
 
         <h3
-          className="text-center text-2xl font-light sm:text-3xl"
-          style={{ fontFamily: "var(--font-serif)", color: "#2c2010" }}
+          className="text-center text-3xl sm:text-4xl"
+          style={{ fontFamily: "var(--font-serif)", fontStyle: "italic", color: "#ece2d2" }}
         >
           {venue}
         </h3>
 
         <div
           className="mt-1 flex flex-col items-center gap-1.5 text-sm"
-          style={{ color: "#8a7060" }}
+          style={{ color: "#9a9082" }}
         >
           <span className="flex items-center gap-1.5">
             <MapPin size={13} style={{ color: "#c9a96e" }} />
@@ -97,7 +97,7 @@ export function DetailsSection({ ceremony, reception }: DetailsSectionProps) {
   return (
     <section
       className="relative overflow-hidden px-6 py-24"
-      style={{ background: "#fdf8f2" }}
+      style={{ background: "#15120e" }}
     >
       <div className="mx-auto max-w-5xl">
         {/* Heading */}
@@ -112,14 +112,17 @@ export function DetailsSection({ ceremony, reception }: DetailsSectionProps) {
             className="text-xs uppercase tracking-[0.4em]"
             style={{ color: "#c9a96e" }}
           >
-            Vi aspettiamo
+            Dove ci troviamo
           </p>
           <h2
-            className="text-3xl font-light sm:text-4xl"
-            style={{ fontFamily: "var(--font-serif)", color: "#2c2010" }}
+            className="text-4xl sm:text-5xl"
+            style={{ fontFamily: "var(--font-serif)", fontStyle: "italic", color: "#d3b884" }}
           >
-            Dove e Quando
+            La location
           </h2>
+          <p className="text-sm" style={{ color: "#9a9082" }}>
+            Tutto quello che devi sapere per raggiungerci
+          </p>
           <FloralDivider />
         </motion.div>
 

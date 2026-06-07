@@ -100,12 +100,12 @@ export function EnvelopeOverlay({ initials, onOpen }: EnvelopeOverlayProps) {
             onKeyDown={(e) => e.key === "Enter" && handleOpen()}
             aria-label="Apri l'invito"
           >
-            {/* Envelope body */}
+            {/* Envelope body — sage paper */}
             <div
               className="relative flex h-52 w-80 items-center justify-center sm:h-60 sm:w-96"
               style={{
-                background: "linear-gradient(145deg, #f5e8d0 0%, #ecdab8 50%, #e0c898 100%)",
-                boxShadow: "0 25px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(201,169,110,0.4)",
+                background: "linear-gradient(145deg, #aab28f 0%, #9aa37e 50%, #8b9570 100%)",
+                boxShadow: "0 25px 60px rgba(0,0,0,0.55), 0 0 0 1px rgba(0,0,0,0.15)",
               }}
             >
               {/* Back V-folds */}
@@ -114,14 +114,14 @@ export function EnvelopeOverlay({ initials, onOpen }: EnvelopeOverlayProps) {
                   className="absolute inset-0"
                   style={{
                     background:
-                      "linear-gradient(to top right, rgba(180,145,85,0.35) 49.5%, transparent 50%)",
+                      "linear-gradient(to top right, rgba(70,80,55,0.35) 49.5%, transparent 50%)",
                   }}
                 />
                 <div
                   className="absolute inset-0"
                   style={{
                     background:
-                      "linear-gradient(to top left, rgba(180,145,85,0.35) 49.5%, transparent 50%)",
+                      "linear-gradient(to top left, rgba(70,80,55,0.35) 49.5%, transparent 50%)",
                   }}
                 />
               </div>
@@ -142,7 +142,7 @@ export function EnvelopeOverlay({ initials, onOpen }: EnvelopeOverlayProps) {
                   className="h-full w-full"
                   style={{
                     background:
-                      "linear-gradient(to bottom right, #dfc898 49.5%, transparent 50%), linear-gradient(to bottom left, #dfc898 49.5%, transparent 50%)",
+                      "linear-gradient(to bottom right, #9ba578 49.5%, transparent 50%), linear-gradient(to bottom left, #9ba578 49.5%, transparent 50%)",
                     backgroundSize: "50.5% 100%, 50.5% 100%",
                     backgroundPosition: "left, right",
                     backgroundRepeat: "no-repeat",
@@ -150,42 +150,38 @@ export function EnvelopeOverlay({ initials, onOpen }: EnvelopeOverlayProps) {
                 />
               </div>
 
-              {/* Initials + wax seal */}
-              <div className="relative z-20 flex flex-col items-center gap-4">
-                <span
-                  className="text-4xl sm:text-5xl"
-                  style={{
-                    fontFamily: "var(--font-serif)",
-                    color: "#2c1a0a",
-                    letterSpacing: "0.05em",
-                  }}
-                >
-                  {initials}
-                </span>
-
-                {/* Wax seal */}
+              {/* Wax seal with C & S monogram */}
+              <div
+                className="animate-seal-pulse relative z-20 flex h-24 w-24 items-center justify-center rounded-full sm:h-28 sm:w-28"
+                style={{
+                  background:
+                    "radial-gradient(circle at 38% 32%, #d8c6a6 0%, #c3ad88 45%, #ab9670 100%)",
+                  boxShadow:
+                    "0 6px 16px rgba(0,0,0,0.35), inset 0 2px 4px rgba(255,255,255,0.35), inset 0 -3px 6px rgba(120,100,70,0.5)",
+                }}
+                aria-hidden="true"
+              >
+                {/* Inner ring */}
                 <div
-                  className="animate-seal-pulse flex h-14 w-14 items-center justify-center rounded-full"
+                  className="flex h-[78%] w-[78%] items-center justify-center rounded-full"
                   style={{
-                    background: "radial-gradient(circle at 35% 35%, #d4504a, #a83830)",
-                    boxShadow: "0 4px 12px rgba(168,56,48,0.5), inset 0 1px 0 rgba(255,255,255,0.2)",
+                    boxShadow:
+                      "inset 0 1px 3px rgba(120,100,70,0.6), inset 0 -1px 2px rgba(255,255,255,0.25)",
                   }}
                 >
-                  {/* Seal crown/flower */}
-                  <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
-                    <circle cx="14" cy="14" r="5" fill="rgba(255,255,255,0.9)" />
-                    {[0, 45, 90, 135, 180, 225, 270, 315].map((deg) => (
-                      <ellipse
-                        key={deg}
-                        cx="14"
-                        cy="14"
-                        rx="3.5"
-                        ry="7"
-                        fill="rgba(255,255,255,0.65)"
-                        transform={`rotate(${deg} 14 14) translate(0, -6)`}
-                      />
-                    ))}
-                  </svg>
+                  <span
+                    className="text-3xl sm:text-4xl"
+                    style={{
+                      fontFamily: "var(--font-serif)",
+                      fontStyle: "italic",
+                      color: "#8a7350",
+                      letterSpacing: "0.02em",
+                      textShadow:
+                        "0 1px 1px rgba(255,255,255,0.4), 0 -1px 1px rgba(120,100,70,0.4)",
+                    }}
+                  >
+                    {initials}
+                  </span>
                 </div>
               </div>
             </div>
