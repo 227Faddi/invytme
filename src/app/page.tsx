@@ -1,65 +1,98 @@
-import Image from "next/image";
+"use client";
+
+import { useState } from "react";
+import { EnvelopeOverlay } from "@/components/invitation/EnvelopeOverlay";
+import { HeroSection } from "@/components/invitation/HeroSection";
+import { CountdownTimer } from "@/components/invitation/CountdownTimer";
+import { DetailsSection } from "@/components/invitation/DetailsSection";
+import { FaqSection } from "@/components/invitation/FaqSection";
+import { RsvpForm } from "@/components/invitation/RsvpForm";
+import { FloralDivider } from "@/components/invitation/FloralDivider";
+import { weddingConfig } from "@/lib/wedding-config";
 
 export default function Home() {
+  const [opened, setOpened] = useState(false);
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <>
+      <EnvelopeOverlay
+        initials={weddingConfig.initials}
+        onOpen={() => setOpened(true)}
+      />
+
+      <main
+        className="flex flex-col"
+        style={{
+          opacity: opened ? 1 : 0,
+          transition: "opacity 0.8s ease",
+          pointerEvents: opened ? "auto" : "none",
+        }}
+      >
+        <HeroSection
+          groomName={weddingConfig.groomName}
+          brideName={weddingConfig.brideName}
+          date={weddingConfig.date}
+          city={weddingConfig.city}
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+
+        <CountdownTimer targetDate={weddingConfig.weddingDate} />
+
+        {/* Section break */}
+        <div style={{ background: "#f5eade" }} className="py-6">
+          <FloralDivider />
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+
+        <DetailsSection
+          ceremony={{
+            venue: weddingConfig.ceremonyVenue,
+            address: weddingConfig.ceremonyAddress,
+            time: weddingConfig.ceremonyTime,
+            mapEmbedUrl: weddingConfig.ceremonyMapEmbedUrl,
+          }}
+          reception={{
+            venue: weddingConfig.receptionVenue,
+            address: weddingConfig.receptionAddress,
+            time: weddingConfig.receptionTime,
+            mapEmbedUrl: weddingConfig.receptionMapEmbedUrl,
+          }}
+        />
+
+        <FaqSection items={weddingConfig.faqItems} />
+
+        {/* Section break */}
+        <div style={{ background: "#fdf8f2" }} className="py-6">
+          <FloralDivider />
+        </div>
+
+        <RsvpForm />
+
+        {/* Footer */}
+        <footer
+          className="py-14 text-center"
+          style={{
+            background: "linear-gradient(160deg, #1a0d08 0%, #2e1a0e 50%, #1a0d08 100%)",
+          }}
+        >
+          <div className="flex flex-col items-center gap-3">
+            <p
+              className="text-2xl font-light"
+              style={{ fontFamily: "var(--font-serif)", color: "#f0d8b0" }}
+            >
+              {weddingConfig.groomName} &amp; {weddingConfig.brideName}
+            </p>
+            <div
+              className="h-px w-16"
+              style={{ background: "linear-gradient(to right, transparent, #c9a96e, transparent)" }}
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+            <p
+              className="text-xs uppercase tracking-[0.3em]"
+              style={{ color: "rgba(201,169,110,0.7)" }}
+            >
+              {weddingConfig.date}
+            </p>
+          </div>
+        </footer>
       </main>
-    </div>
+    </>
   );
 }
