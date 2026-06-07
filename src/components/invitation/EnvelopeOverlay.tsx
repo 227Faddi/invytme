@@ -148,7 +148,7 @@ export function EnvelopeOverlay({ initials, onOpen }: EnvelopeOverlayProps) {
                   className="text-[0.6rem] uppercase tracking-[0.3em]"
                   style={{ color: "#9a8466" }}
                 >
-                  Save the date
+                  Vi aspettiamo
                 </p>
               </div>
 
@@ -225,12 +225,12 @@ export function EnvelopeOverlay({ initials, onOpen }: EnvelopeOverlayProps) {
                   }}
                 >
                   <span
-                    className="animate-seal-pulse text-2xl sm:text-3xl"
+                    className="animate-seal-pulse whitespace-nowrap text-lg leading-none sm:text-xl"
                     style={{
                       fontFamily: "var(--font-serif)",
                       fontStyle: "italic",
                       color: "#8a7350",
-                      letterSpacing: "0.02em",
+                      letterSpacing: "0",
                       textShadow:
                         "0 1px 1px rgba(255,255,255,0.4), 0 -1px 1px rgba(120,100,70,0.4)",
                     }}

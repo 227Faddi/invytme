@@ -13,7 +13,6 @@ interface VenueInfo {
 
 interface DetailsSectionProps {
   ceremony: VenueInfo;
-  reception: VenueInfo;
 }
 
 function VenueCard({
@@ -26,7 +25,7 @@ function VenueCard({
 }: VenueInfo & { type: "Cerimonia" | "Ricevimento"; delay: number }) {
   return (
     <motion.div
-      className="flex flex-col overflow-hidden"
+      className="flex w-full flex-col overflow-hidden"
       style={{
         background: "#1e1a15",
         border: "1px solid rgba(201,169,110,0.18)",
@@ -81,11 +80,11 @@ function VenueCard({
       </div>
 
       {/* Map */}
-      <div className="relative overflow-hidden" style={{ height: 220 }}>
+      <div className="relative overflow-hidden" style={{ height: 420 }}>
         <iframe
           src={mapEmbedUrl}
           width="100%"
-          height="220"
+          height="420"
           style={{ border: 0, display: "block" }}
           allowFullScreen
           loading="lazy"
@@ -134,7 +133,7 @@ export function DetailsSection({ ceremony }: DetailsSectionProps) {
           <FloralDivider />
         </motion.div>
 
-        <div className="flex items-center">
+        <div className="mx-auto max-w-2xl">
           <VenueCard type="Cerimonia" {...ceremony} delay={0} />
         </div>
       </div>

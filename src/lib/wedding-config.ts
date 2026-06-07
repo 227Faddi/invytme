@@ -1,10 +1,10 @@
 export const weddingConfig = {
-  groomName: "Simone",
-  brideName: "Claudia",
-  initials: "C & S",
+  groomName: "Kary",
+  brideName: "Giulio",
+  initials: "K & G",
   date: "31 Maggio 2026",
-  dateShort: "31 · 05 · 2026",
-  weddingDate: new Date("2026-05-31T16:00:00"),
+  dateShort: "26 · 09 · 2026",
+  weddingDate: new Date("2026-09-26T11:00:00"),
   city: "Italia",
 
   // Ceremony

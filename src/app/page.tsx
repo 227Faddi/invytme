@@ -43,12 +43,6 @@ export default function Home() {
             time: weddingConfig.ceremonyTime,
             mapEmbedUrl: weddingConfig.ceremonyMapEmbedUrl,
           }}
-          reception={{
-            venue: weddingConfig.receptionVenue,
-            address: weddingConfig.receptionAddress,
-            time: weddingConfig.receptionTime,
-            mapEmbedUrl: weddingConfig.receptionMapEmbedUrl,
-          }}
         />
 
         <RsvpForm />
