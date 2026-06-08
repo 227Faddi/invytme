@@ -3,6 +3,7 @@ import { Cormorant_Garamond, Geist_Mono, Lato } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Toaster } from "@/components/ui/sonner";
+import { weddingConfig } from "@/lib/wedding-config";
 
 const lato = Lato({
   subsets: ["latin"],
@@ -22,9 +23,11 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const couple = `${weddingConfig.brideName} & ${weddingConfig.groomName}`;
+
 export const metadata: Metadata = {
-  title: "Claudia & Simone — Il Nostro Matrimonio | 31 Maggio 2026",
-  description: "Siete invitati al matrimonio di Claudia & Simone",
+  title: `${couple} — Il Nostro Matrimonio | ${weddingConfig.date}`,
+  description: `Siete invitati al matrimonio di ${couple}`,
 };
 
 export default function RootLayout({

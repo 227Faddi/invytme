@@ -1,14 +1,18 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
 import { weddingConfig } from "@/lib/wedding-config";
+import { motion } from "framer-motion";
+import { useSyncExternalStore } from "react";
 
 const t = weddingConfig.text.countdown;
 
-function getTimeLeft(target: Date) {
+type TimeLeft = { giorni: number; ore: number; minuti: number; secondi: number };
+
+const ZERO: TimeLeft = { giorni: 0, ore: 0, minuti: 0, secondi: 0 };
+
+function compute(target: Date): TimeLeft {
   const diff = target.getTime() - Date.now();
-  if (diff <= 0) return { giorni: 0, ore: 0, minuti: 0, secondi: 0 };
+  if (diff <= 0) return ZERO;
   return {
     giorni: Math.floor(diff / (1000 * 60 * 60 * 24)),
     ore: Math.floor((diff / (1000 * 60 * 60)) % 24),
@@ -17,17 +21,43 @@ function getTimeLeft(target: Date) {
   };
 }
 
-export function CountdownTimer({ targetDate }: { targetDate: Date }) {
-  const [time, setTime] = useState(() => getTimeLeft(targetDate));
+// Module-level subscription + cached snapshot. Keeping these outside the
+// component avoids re-subscribing on every render, and the cache lets
+// getSnapshot return a referentially-stable value until the time actually
+// changes (required by useSyncExternalStore). No render-scope mutation, so the
+// React Compiler is happy.
+function subscribe(onChange: () => void) {
+  const id = setInterval(onChange, 1000);
+  return () => clearInterval(id);
+}
 
-  useEffect(() => {
-    const id = setInterval(() => setTime(getTimeLeft(targetDate)), 1000);
-    return () => clearInterval(id);
-  }, [targetDate]);
+let cache: TimeLeft = ZERO;
+function snapshotFor(target: Date): TimeLeft {
+  const next = compute(target);
+  if (
+    next.giorni !== cache.giorni ||
+    next.ore !== cache.ore ||
+    next.minuti !== cache.minuti ||
+    next.secondi !== cache.secondi
+  ) {
+    cache = next;
+  }
+  return cache;
+}
+
+export function CountdownTimer({ targetDate }: { targetDate: Date }) {
+  // Server renders the deterministic ZERO snapshot (so SSR matches the client's
+  // first paint — no hydration mismatch); after mount it reads the live value
+  // and updates every second via the subscription above.
+  const time = useSyncExternalStore(
+    subscribe,
+    () => snapshotFor(targetDate),
+    () => ZERO
+  );
 
   const units = [
-    { label: t.days,    value: time.giorni },
-    { label: t.hours,   value: time.ore },
+    { label: t.days, value: time.giorni },
+    { label: t.hours, value: time.ore },
     { label: t.minutes, value: time.minuti },
     { label: t.seconds, value: time.secondi },
   ];
@@ -54,10 +84,22 @@ export function CountdownTimer({ targetDate }: { targetDate: Date }) {
           </p>
           <h2
             className="text-4xl sm:text-5xl"
-            style={{ fontFamily: "var(--font-serif)", fontStyle: "italic", color: "#d3b884" }}
+            style={{
+              fontFamily: "var(--font-serif)",
+              fontStyle: "italic",
+              color: "#d3b884",
+            }}
           >
             {t.title}
           </h2>
+          {t.subtitle && (
+            <p
+              className="text-sm uppercase sm:text-base"
+              style={{ color: "#c9a96e", letterSpacing: "0.25em" }}
+            >
+              {t.subtitle.replace("{date}", weddingConfig.date)}
+            </p>
+          )}
         </div>
 
         {/* Countdown boxes — connected row */}
