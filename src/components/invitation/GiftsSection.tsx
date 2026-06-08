@@ -1,10 +1,10 @@
 "use client";
 
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { Sparkles, Copy, Check } from "lucide-react";
-import { FloralDivider } from "./FloralDivider";
 import { weddingConfig } from "@/lib/wedding-config";
+import { motion } from "framer-motion";
+import { Check, Copy, Sparkles } from "lucide-react";
+import { useState } from "react";
+import { FloralDivider } from "./FloralDivider";
 
 const t = weddingConfig.text.gifts;
 
@@ -12,16 +12,24 @@ interface GiftsSectionProps {
   blurb: string;
   cardTitle: string;
   description: string;
+  accountName: string;
   iban: string;
 }
 
-export function GiftsSection({ blurb, cardTitle, description, iban }: GiftsSectionProps) {
+export function GiftsSection({
+  blurb,
+  cardTitle,
+  description,
+  accountName,
+  iban,
+}: GiftsSectionProps) {
   const [revealed, setRevealed] = useState(false);
   const [copied, setCopied] = useState(false);
 
   const copyIban = async () => {
     try {
-      await navigator.clipboard.writeText(iban.replace(/\s+/g, ""));
+      const textToCopy = `${accountName}\n${iban.replace(/\s+/g, "")}`;
+      await navigator.clipboard.writeText(textToCopy);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch {
@@ -30,7 +38,10 @@ export function GiftsSection({ blurb, cardTitle, description, iban }: GiftsSecti
   };
 
   return (
-    <section className="relative overflow-hidden px-6 py-24" style={{ background: "#15120e" }}>
+    <section
+      className="relative overflow-hidden px-6 py-24"
+      style={{ background: "#15120e" }}
+    >
       <div className="mx-auto max-w-xl">
         {/* Heading */}
         <motion.div
@@ -41,18 +52,30 @@ export function GiftsSection({ blurb, cardTitle, description, iban }: GiftsSecti
           transition={{ duration: 0.7 }}
         >
           <FloralDivider />
-          <p className="text-xs uppercase tracking-[0.4em]" style={{ color: "#c9a96e" }}>
+          <p
+            className="text-xs uppercase tracking-[0.4em]"
+            style={{ color: "#c9a96e" }}
+          >
             {t.label}
           </p>
           <h2
             className="text-4xl sm:text-5xl"
-            style={{ fontFamily: "var(--font-serif)", fontStyle: "italic", color: "#d3b884" }}
+            style={{
+              fontFamily: "var(--font-serif)",
+              fontStyle: "italic",
+              color: "#d3b884",
+            }}
           >
             {t.title}
           </h2>
           <p
             className="max-w-md text-sm leading-relaxed"
-            style={{ fontFamily: "var(--font-serif)", fontStyle: "italic", color: "#9a9082", fontSize: "1.05rem" }}
+            style={{
+              fontFamily: "var(--font-serif)",
+              fontStyle: "italic",
+              color: "#9a9082",
+              fontSize: "1.05rem",
+            }}
           >
             {blurb}
           </p>
@@ -64,7 +87,11 @@ export function GiftsSection({ blurb, cardTitle, description, iban }: GiftsSecti
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          style={{ background: "#1e1a15", border: "1px solid rgba(201,169,110,0.18)" }}
+          className="overflow-hidden rounded-[32px]"
+          style={{
+            background: "var(--w-card)",
+            border: "1px solid var(--w-border)",
+          }}
         >
           {/* Card header */}
           <div
@@ -73,7 +100,11 @@ export function GiftsSection({ blurb, cardTitle, description, iban }: GiftsSecti
           >
             <span
               className="text-lg"
-              style={{ fontFamily: "var(--font-serif)", fontStyle: "italic", color: "#ece2d2" }}
+              style={{
+                fontFamily: "var(--font-serif)",
+                fontStyle: "italic",
+                color: "var(--w-cream)",
+              }}
             >
               {cardTitle}
             </span>
@@ -96,13 +127,16 @@ export function GiftsSection({ blurb, cardTitle, description, iban }: GiftsSecti
               animate={{ opacity: 1, height: "auto" }}
               transition={{ duration: 0.4 }}
             >
-              <p className="text-sm leading-relaxed" style={{ color: "#9a9082" }}>
+              <p
+                className="text-sm leading-relaxed"
+                style={{ color: "#9a9082" }}
+              >
                 {description}
               </p>
 
-              {/* IBAN */}
+              {/* Account Details */}
               <div
-                className="px-4 py-3 text-sm tracking-wider"
+                className="space-y-2 px-4 py-4 text-sm tracking-wider"
                 style={{
                   background: "#15120e",
                   border: "1px solid rgba(201,169,110,0.25)",
@@ -110,7 +144,12 @@ export function GiftsSection({ blurb, cardTitle, description, iban }: GiftsSecti
                   color: "#ece2d2",
                 }}
               >
-                {iban}
+                <div className="pb-1 text-xs opacity-60">Intestato a:</div>
+                <div className="pb-2 border-b border-white/5">
+                  {accountName}
+                </div>
+                <div className="pt-1 text-xs opacity-60">IBAN:</div>
+                <div>{iban}</div>
               </div>
 
               {/* Copy button */}
@@ -118,7 +157,10 @@ export function GiftsSection({ blurb, cardTitle, description, iban }: GiftsSecti
                 type="button"
                 onClick={copyIban}
                 className="flex w-full items-center justify-center gap-2 py-3 text-xs uppercase tracking-[0.2em] transition-colors"
-                style={{ border: "1px solid rgba(201,169,110,0.3)", color: "#c9a96e" }}
+                style={{
+                  border: "1px solid rgba(201,169,110,0.3)",
+                  color: "#c9a96e",
+                }}
               >
                 {copied ? <Check size={13} /> : <Copy size={13} />}
                 {copied ? t.copied : t.copy}

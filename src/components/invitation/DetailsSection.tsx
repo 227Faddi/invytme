@@ -1,9 +1,9 @@
 "use client";
 
+import { weddingConfig } from "@/lib/wedding-config";
 import { motion } from "framer-motion";
 import { Clock, MapPin } from "lucide-react";
 import { FloralDivider } from "./FloralDivider";
-import { weddingConfig } from "@/lib/wedding-config";
 
 const t = weddingConfig.text.details;
 
@@ -28,7 +28,7 @@ function VenueCard({
 }: VenueInfo & { type: string; delay: number }) {
   return (
     <motion.div
-      className="flex w-full flex-col overflow-hidden"
+      className="flex w-full flex-col overflow-hidden rounded-[32px]"
       style={{
         background: "#1e1a15",
         border: "1px solid rgba(201,169,110,0.18)",

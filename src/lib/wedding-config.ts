@@ -66,6 +66,7 @@ export const weddingConfig = {
   giftCardTitle: "Contributo",
   giftDescription:
     "Per chi lo desidera, contributo in busta il giorno delle nozze oppure tramite bonifico.",
+  giftAccountName: "Giulio & Kary",
   giftIban: "IT 1234 5678 9101 1121 3141 516",
 
   // ─────────────────────────────────────────────

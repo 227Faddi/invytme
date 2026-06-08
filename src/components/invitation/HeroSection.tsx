@@ -1,8 +1,8 @@
 "use client";
 
+import { weddingConfig } from "@/lib/wedding-config";
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
-import { weddingConfig } from "@/lib/wedding-config";
 
 const t = weddingConfig.text.hero;
 
@@ -61,15 +61,23 @@ export function HeroSection({ groomName, brideName, date }: HeroSectionProps) {
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center gap-4 px-6 text-center">
         {/* Top label */}
-        <motion.p
+        <motion.div
           initial={{ opacity: 0, letterSpacing: "0.6em" }}
           animate={{ opacity: 1, letterSpacing: "0.4em" }}
           transition={{ duration: 1.4, delay: 0.2 }}
-          className="text-[0.7rem] font-light uppercase"
-          style={{ color: "rgba(201,169,110,0.85)", letterSpacing: "0.4em" }}
+          className="rounded-full bg-black/30 px-6 py-1.5 backdrop-blur-md ring-1 ring-white/5"
         >
-          {t.intro}
-        </motion.p>
+          <p
+            className="text-[0.7rem] font-bold uppercase"
+            style={{
+              color: "rgba(201,169,110,0.95)",
+              letterSpacing: "0.4em",
+              textShadow: "0 1px 4px rgba(0,0,0,0.5)",
+            }}
+          >
+            {t.intro}
+          </p>
+        </motion.div>
 
         {/* Names */}
         <motion.div
@@ -92,12 +100,11 @@ export function HeroSection({ groomName, brideName, date }: HeroSectionProps) {
             {brideName}
           </h1>
           <span
-            className="my-1"
+            className="my-1 font-bold"
             style={{
               fontFamily: "var(--font-serif)",
               fontStyle: "italic",
               fontSize: "clamp(1.6rem, 4.5vw, 3rem)",
-              color: "#c9a96e",
               textShadow: "0 2px 20px rgba(0,0,0,0.4)",
             }}
           >
@@ -126,21 +133,42 @@ export function HeroSection({ groomName, brideName, date }: HeroSectionProps) {
           className="flex items-center gap-3"
           aria-hidden="true"
         >
-          <div className="h-px w-10" style={{ background: "linear-gradient(to right, transparent, #c9a96e)" }} />
-          <div className="h-1 w-1 rotate-45" style={{ background: "#c9a96e" }} />
-          <div className="h-px w-10" style={{ background: "linear-gradient(to left, transparent, #c9a96e)" }} />
+          <div
+            className="h-px w-10"
+            style={{
+              background: "linear-gradient(to right, transparent, #c9a96e)",
+            }}
+          />
+          <div
+            className="h-1 w-1 rotate-45"
+            style={{ background: "#c9a96e" }}
+          />
+          <div
+            className="h-px w-10"
+            style={{
+              background: "linear-gradient(to left, transparent, #c9a96e)",
+            }}
+          />
         </motion.div>
 
         {/* Date */}
-        <motion.p
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 1.6 }}
-          className="text-xs font-light uppercase sm:text-sm"
-          style={{ color: "rgba(201,169,110,0.85)", letterSpacing: "0.35em" }}
+          className="rounded-full bg-black/20 px-6 py-1.5 backdrop-blur-sm ring-1 ring-white/5"
         >
-          {date}
-        </motion.p>
+          <p
+            className="text-xs font-bold uppercase sm:text-sm"
+            style={{
+              color: "rgba(201,169,110,0.95)",
+              letterSpacing: "0.35em",
+              textShadow: "0 1px 4px rgba(0,0,0,0.5)",
+            }}
+          >
+            {date}
+          </p>
+        </motion.div>
       </div>
 
       {/* Page marker */}
@@ -152,11 +180,18 @@ export function HeroSection({ groomName, brideName, date }: HeroSectionProps) {
       >
         <span
           className="text-xs tracking-widest"
-          style={{ fontFamily: "var(--font-serif)", color: "rgba(201,169,110,0.8)" }}
+          style={{
+            fontFamily: "var(--font-serif)",
+            color: "rgba(201,169,110,0.8)",
+          }}
         >
           01
         </span>
-        <ChevronDown size={14} className="animate-bounce" style={{ color: "rgba(201,169,110,0.7)" }} />
+        <ChevronDown
+          size={14}
+          className="animate-bounce"
+          style={{ color: "rgba(201,169,110,0.7)" }}
+        />
       </motion.div>
     </section>
   );

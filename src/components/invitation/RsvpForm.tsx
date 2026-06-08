@@ -173,7 +173,7 @@ export function RsvpForm() {
   const inputStyle = {
     background: "#15120e",
     border: "1px solid rgba(201,169,110,0.3)",
-    borderRadius: 0,
+    borderRadius: 16,
     color: "#ece2d2",
     fontSize: "0.875rem",
   };
@@ -225,7 +225,7 @@ export function RsvpForm() {
             border: "1px solid rgba(201,169,110,0.18)",
             boxShadow: "0 8px 50px rgba(0,0,0,0.4)",
           }}
-          className="p-8 sm:p-10"
+          className="rounded-[32px] p-8 sm:p-10"
         >
           <FormProvider {...methods}>
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-7">

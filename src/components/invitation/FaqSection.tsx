@@ -1,14 +1,14 @@
 "use client";
 
-import { motion } from "framer-motion";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { FloralDivider } from "./FloralDivider";
 import { weddingConfig } from "@/lib/wedding-config";
+import { motion } from "framer-motion";
+import { FloralDivider } from "./FloralDivider";
 
 const t = weddingConfig.text.faq;
 
@@ -40,7 +40,11 @@ export function FaqSection({ items }: { items: FaqItem[] }) {
           </p>
           <h2
             className="text-4xl sm:text-5xl"
-            style={{ fontFamily: "var(--font-serif)", fontStyle: "italic", color: "#d3b884" }}
+            style={{
+              fontFamily: "var(--font-serif)",
+              fontStyle: "italic",
+              color: "#d3b884",
+            }}
           >
             {t.title}
           </h2>
@@ -53,12 +57,16 @@ export function FaqSection({ items }: { items: FaqItem[] }) {
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.8 }}
         >
-          <Accordion type="single" collapsible className="space-y-2">
+          <Accordion
+            type="single"
+            collapsible
+            className="space-y-2 overflow-visible rounded-none border-0"
+          >
             {items.map((item, i) => (
               <AccordionItem
                 key={i}
                 value={`item-${i}`}
-                className="overflow-hidden"
+                className="overflow-hidden rounded-[32px]"
                 style={{
                   background: "#1e1a15",
                   border: "1px solid rgba(201,169,110,0.18)",

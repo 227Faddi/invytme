@@ -55,6 +55,7 @@ export default function Home() {
             blurb={weddingConfig.giftBlurb}
             cardTitle={weddingConfig.giftCardTitle}
             description={weddingConfig.giftDescription}
+            accountName={weddingConfig.giftAccountName}
             iban={weddingConfig.giftIban}
           />
         )}
