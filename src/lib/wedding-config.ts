@@ -1,27 +1,39 @@
+// ════════════════════════════════════════════════════════════════
+//  CONFIGURAZIONE INVITO — ordinata come appare nella pagina
+//  (dall'alto verso il basso). Modifica qui tutti i contenuti.
+// ════════════════════════════════════════════════════════════════
+
 export const weddingConfig = {
-  groomName: "Giulio",
-  brideName: "Kary",
+  // ─────────────────────────────────────────────
+  // 1 · BUSTA (schermata iniziale)
+  // ─────────────────────────────────────────────
   initials: "K & G",
+
+  // ─────────────────────────────────────────────
+  // 2 · HERO / SPOSI
+  // ─────────────────────────────────────────────
+  brideName: "Kary",
+  groomName: "Giulio",
   date: "26 Settembre 2026",
-  dateShort: "26 · 09 · 2026",
-  weddingDate: new Date("2026-09-26T11:00:00"),
   city: "Italia",
 
-  // Ceremony
-  ceremonyVenue: "Chiesa di Santa Maria",
-  ceremonyAddress: "Via Roma 1, Città",
-  ceremonyTime: "16:00",
+  // ─────────────────────────────────────────────
+  // 3 · CONTO ALLA ROVESCIA
+  // ─────────────────────────────────────────────
+  weddingDate: new Date("2026-09-26T11:00:00"),
+
+  // ─────────────────────────────────────────────
+  // 4 · LOCATION (Cerimonia)
+  // ─────────────────────────────────────────────
+  ceremonyVenue: "Tavernetta Beach",
+  ceremonyAddress: "Loc, Spiaggia di Porto Taverna, SUD, 07020 Vaccileddi SS",
+  ceremonyTime: "11:30",
   ceremonyMapEmbedUrl:
-    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2796.0!2d12.4922!3d41.8902!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDUzJzI0LjciTiAxMsKwMjknMzIuMCJF!5e0!3m2!1sit!2sit!4v1234567890",
+    "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6035.442422704241!2d9.6578387!3d40.8560443!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12decd8750088e8b%3A0xcd0b1622c433e3de!2sTavernetta%20Beach!5e0!3m2!1sen!2sca!4v1780933529717!5m2!1sen!2sca",
 
-  // Reception
-  receptionVenue: "Villa Mare",
-  receptionAddress: "Via del Mare 10, Città",
-  receptionTime: "19:00",
-  receptionMapEmbedUrl:
-    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2796.0!2d12.4922!3d41.8902!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDUzJzI0LjciTiAxMsKwMjknMzIuMCJF!5e0!3m2!1sit!2sit!4v1234567891",
-
-  // FAQ
+  // ─────────────────────────────────────────────
+  // 5 · DOMANDE FREQUENTI
+  // ─────────────────────────────────────────────
   faqItems: [
     {
       question: "Dove posso parcheggiare?",
@@ -45,7 +57,9 @@ export const weddingConfig = {
     },
   ],
 
-  // Gifts / Regali
+  // ─────────────────────────────────────────────
+  // 6 · REGALI
+  // ─────────────────────────────────────────────
   giftEnabled: true,
   giftBlurb:
     "Se vorrete farci un dono, accompagnateci nel nostro viaggio di nozze. Sarà il primo orizzonte che guarderemo insieme.",
@@ -54,14 +68,17 @@ export const weddingConfig = {
     "Per chi lo desidera, contributo in busta il giorno delle nozze oppure tramite bonifico.",
   giftIban: "IT 1234 5678 9101 1121 3141 516",
 
-  // Footer
+  // ─────────────────────────────────────────────
+  // 7 · FOOTER
+  // ─────────────────────────────────────────────
   footerMessage: "Vi aspettiamo.",
+  dateShort: "26 · 09 · 2026",
 
-  // ───────────────────────────────────────────────────────────────
-  // Tutti i testi dell'interfaccia — modificali qui
-  // ───────────────────────────────────────────────────────────────
+  // ════════════════════════════════════════════════════════════════
+  //  TESTI DELL'INTERFACCIA — in ordine di apparizione nella pagina
+  // ════════════════════════════════════════════════════════════════
   text: {
-    // Busta iniziale (schermata di apertura)
+    // 1 · Busta iniziale (schermata di apertura)
     envelope: {
       invitation: "Siete Cordialmente Invitati",
       title: "Al nostro matrimonio",
@@ -69,42 +86,39 @@ export const weddingConfig = {
       letterNote: "Vi aspettiamo",
     },
 
-    // Sezione hero (nomi)
+    // 2 · Hero (sopra i nomi)
     hero: {
       intro: "Vi aspettiamo",
     },
 
-    // Conto alla rovescia
+    // 3 · Conto alla rovescia
     countdown: {
       label: "Il grande giorno si avvicina",
       title: "Conto alla rovescia",
+      // Sottotitolo sotto il titolo. Usa {date} per inserire la data del
+      // matrimonio. Lascia "" per nasconderlo.
+      subtitle: "{date}",
       days: "Giorni",
       hours: "Ore",
       minutes: "Minuti",
       seconds: "Secondi",
     },
 
-    // Sezione location
+    // 4 · Sezione location
     details: {
       label: "Dove ci troviamo",
       title: "La location",
       subtitle: "Tutto quello che devi sapere per raggiungerci",
-      ceremonyLabel: "Cerimonia",
+      ceremonyLabel: "Cerimonia & Ricevimento",
       timePrefix: "ore",
     },
 
-    // Domande frequenti
-    faq: {
-      label: "Tutto quello che c'è da sapere",
-      title: "Domande",
-    },
-
-    // Modulo di conferma (RSVP)
+    // 5 · Modulo di conferma (RSVP)
     rsvp: {
       label: "La vostra presenza è un dono",
       title: "Conferma la tua presenza",
       deadlinePrefix: "Vi preghiamo di rispondere entro il",
-      deadlineDate: "30 aprile 2026",
+      deadlineDate: "31 luglio 2026",
       inviteCodeLabel: "Codice invito",
       inviteCodePlaceholder: "Inserisci il codice ricevuto",
       nameLabel: "Nome completo",
@@ -141,7 +155,13 @@ export const weddingConfig = {
       errNetwork: "Errore di rete. Riprova.",
     },
 
-    // Sezione regali
+    // 6 · Domande frequenti
+    faq: {
+      label: "Tutto quello che c'è da sapere",
+      title: "Domande",
+    },
+
+    // 7 · Sezione regali
     gifts: {
       label: "Con tutto il nostro affetto",
       title: "Regali",
@@ -151,7 +171,7 @@ export const weddingConfig = {
       copied: "Copiato",
     },
 
-    // Footer
+    // 8 · Footer
     footer: {
       closing: "Con amore,",
     },
