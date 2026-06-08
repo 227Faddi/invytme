@@ -68,7 +68,7 @@ export default function Home() {
               {weddingConfig.footerMessage}
             </p>
             <p className="text-sm" style={{ color: "#9a9082" }}>
-              Con amore,
+              {weddingConfig.text.footer.closing}
             </p>
             <p
               className="text-lg"

@@ -8,6 +8,9 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { FloralDivider } from "./FloralDivider";
+import { weddingConfig } from "@/lib/wedding-config";
+
+const t = weddingConfig.text.faq;
 
 interface FaqItem {
   question: string;
@@ -33,13 +36,13 @@ export function FaqSection({ items }: { items: FaqItem[] }) {
             className="text-xs uppercase tracking-[0.4em]"
             style={{ color: "#c9a96e" }}
           >
-            Tutto quello che c&apos;è da sapere
+            {t.label}
           </p>
           <h2
             className="text-4xl sm:text-5xl"
             style={{ fontFamily: "var(--font-serif)", fontStyle: "italic", color: "#d3b884" }}
           >
-            Domande
+            {t.title}
           </h2>
           <FloralDivider />
         </motion.div>

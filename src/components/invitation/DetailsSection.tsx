@@ -3,6 +3,9 @@
 import { motion } from "framer-motion";
 import { Clock, MapPin } from "lucide-react";
 import { FloralDivider } from "./FloralDivider";
+import { weddingConfig } from "@/lib/wedding-config";
+
+const t = weddingConfig.text.details;
 
 interface VenueInfo {
   venue: string;
@@ -22,7 +25,7 @@ function VenueCard({
   time,
   mapEmbedUrl,
   delay,
-}: VenueInfo & { type: "Cerimonia" | "Ricevimento"; delay: number }) {
+}: VenueInfo & { type: string; delay: number }) {
   return (
     <motion.div
       className="flex w-full flex-col overflow-hidden"
@@ -74,7 +77,7 @@ function VenueCard({
           </span>
           <span className="flex items-center gap-1.5">
             <Clock size={13} style={{ color: "#c9a96e" }} />
-            ore {time}
+            {t.timePrefix} {time}
           </span>
         </div>
       </div>
@@ -115,7 +118,7 @@ export function DetailsSection({ ceremony }: DetailsSectionProps) {
             className="text-xs uppercase tracking-[0.4em]"
             style={{ color: "#c9a96e" }}
           >
-            Dove ci troviamo
+            {t.label}
           </p>
           <h2
             className="text-4xl sm:text-5xl"
@@ -125,16 +128,16 @@ export function DetailsSection({ ceremony }: DetailsSectionProps) {
               color: "#d3b884",
             }}
           >
-            La location
+            {t.title}
           </h2>
           <p className="text-sm" style={{ color: "#9a9082" }}>
-            Tutto quello che devi sapere per raggiungerci
+            {t.subtitle}
           </p>
           <FloralDivider />
         </motion.div>
 
         <div className="mx-auto max-w-2xl">
-          <VenueCard type="Cerimonia" {...ceremony} delay={0} />
+          <VenueCard type={t.ceremonyLabel} {...ceremony} delay={0} />
         </div>
       </div>
     </section>

@@ -12,16 +12,19 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { FloralDivider } from "./FloralDivider";
 import { ExtraGuestFields } from "./ExtraGuestFields";
+import { weddingConfig } from "@/lib/wedding-config";
+
+const t = weddingConfig.text.rsvp;
 
 const schema = z.object({
-  inviteCode: z.string().min(1, "Inserisci il codice invito"),
-  name: z.string().min(2, "Inserisci il tuo nome completo"),
+  inviteCode: z.string().min(1, t.errInviteCode),
+  name: z.string().min(2, t.errName),
   attending: z.enum(["yes", "no"]),
   dietary: z.string().optional(),
   message: z.string().optional(),
   extraGuests: z.array(
     z.object({
-      name: z.string().min(1, "Inserisci il nome"),
+      name: z.string().min(1, t.errGuestName),
       dietary: z.string().optional(),
     })
   ),
@@ -122,16 +125,16 @@ export function RsvpForm() {
         body: JSON.stringify(data),
       });
       if (res.status === 401) {
-        setCodeError("Codice invito non valido. Riprova.");
+        setCodeError(t.errInvalidCode);
         return;
       }
       if (!res.ok) {
-        toast.error("Errore nell'invio. Riprova più tardi.");
+        toast.error(t.errSend);
         return;
       }
       setSubmitted(true);
     } catch {
-      toast.error("Errore di rete. Riprova.");
+      toast.error(t.errNetwork);
     }
   };
 
@@ -151,11 +154,14 @@ export function RsvpForm() {
               className="text-4xl sm:text-5xl"
               style={{ fontFamily: "var(--font-serif)", fontStyle: "italic", color: "#d3b884" }}
             >
-              Grazie mille!
+              {t.successTitle}
             </h2>
             <FloralDivider />
-            <p className="text-sm leading-relaxed" style={{ color: "#9a9082" }}>
-              La tua risposta è stata ricevuta con gioia.<br />Non vediamo l&apos;ora di festeggiare insieme.
+            <p
+              className="whitespace-pre-line text-sm leading-relaxed"
+              style={{ color: "#9a9082" }}
+            >
+              {t.successMessage}
             </p>
           </motion.div>
         </div>
@@ -193,18 +199,18 @@ export function RsvpForm() {
             className="text-xs uppercase tracking-[0.4em]"
             style={{ color: "#c9a96e" }}
           >
-            La vostra presenza è un dono
+            {t.label}
           </p>
           <h2
             className="text-4xl sm:text-5xl"
             style={{ fontFamily: "var(--font-serif)", fontStyle: "italic", color: "#d3b884" }}
           >
-            Conferma la tua presenza
+            {t.title}
           </h2>
           <FloralDivider />
           <p className="text-sm" style={{ color: "#9a9082" }}>
-            Vi preghiamo di rispondere entro il{" "}
-            <span style={{ color: "#ece2d2" }}>30 aprile 2026</span>
+            {t.deadlinePrefix}{" "}
+            <span style={{ color: "#ece2d2" }}>{t.deadlineDate}</span>
           </p>
         </motion.div>
 
@@ -225,20 +231,20 @@ export function RsvpForm() {
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-7">
 
               {/* Invite code */}
-              <Field label="Codice invito" error={codeError || errors.inviteCode?.message}>
+              <Field label={t.inviteCodeLabel} error={codeError || errors.inviteCode?.message}>
                 <Input
                   {...register("inviteCode")}
-                  placeholder="Inserisci il codice ricevuto"
+                  placeholder={t.inviteCodePlaceholder}
                   style={inputStyle}
                   className={focusRingStyle}
                 />
               </Field>
 
               {/* Name */}
-              <Field label="Nome completo" error={errors.name?.message}>
+              <Field label={t.nameLabel} error={errors.name?.message}>
                 <Input
                   {...register("name")}
-                  placeholder="Nome e cognome"
+                  placeholder={t.namePlaceholder}
                   style={inputStyle}
                   className={focusRingStyle}
                 />
@@ -247,18 +253,18 @@ export function RsvpForm() {
               {/* Attending */}
               <div className="space-y-2">
                 <p className="text-xs uppercase tracking-widest" style={{ color: "#9a9082", letterSpacing: "0.15em" }}>
-                  Partecipi?
+                  {t.attendingQuestion}
                 </p>
                 <div className="flex gap-0">
                   <AttendingOption
                     value="yes"
-                    label="Sì, ci sarò"
+                    label={t.attendingYes}
                     selected={attending === "yes"}
                     onChange={() => setValue("attending", "yes")}
                   />
                   <AttendingOption
                     value="no"
-                    label="Purtroppo non posso"
+                    label={t.attendingNo}
                     selected={attending === "no"}
                     onChange={() => setValue("attending", "no")}
                   />
@@ -267,10 +273,10 @@ export function RsvpForm() {
               </div>
 
               {/* Dietary */}
-              <Field label="Intolleranze o allergie">
+              <Field label={t.dietaryLabel}>
                 <Textarea
                   {...register("dietary")}
-                  placeholder="Es: vegetariano, celiaco, senza lattosio..."
+                  placeholder={t.dietaryPlaceholder}
                   rows={2}
                   style={{ ...inputStyle, resize: "none" }}
                   className={focusRingStyle}
@@ -281,10 +287,10 @@ export function RsvpForm() {
               <ExtraGuestFields />
 
               {/* Message */}
-              <Field label="Un messaggio per gli sposi">
+              <Field label={t.messageLabel}>
                 <Textarea
                   {...register("message")}
-                  placeholder="Scrivi un pensiero o un augurio..."
+                  placeholder={t.messagePlaceholder}
                   rows={3}
                   style={{ ...inputStyle, resize: "none" }}
                   className={focusRingStyle}
@@ -310,10 +316,10 @@ export function RsvpForm() {
                 {isSubmitting ? (
                   <span className="flex items-center justify-center gap-2">
                     <Loader2 size={15} className="animate-spin" />
-                    Invio in corso...
+                    {t.submitPending}
                   </span>
                 ) : (
-                  "Conferma la tua presenza"
+                  t.submitIdle
                 )}
               </button>
 

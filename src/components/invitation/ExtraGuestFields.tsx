@@ -6,6 +6,9 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import type { RsvpFormValues } from "./RsvpForm";
+import { weddingConfig } from "@/lib/wedding-config";
+
+const t = weddingConfig.text.rsvp;
 
 const inputStyle = {
   background: "#15120e",
@@ -23,7 +26,7 @@ export function ExtraGuestFields() {
     <div className="space-y-4">
       <div className="flex items-center justify-between">
         <p className="text-xs uppercase tracking-widest" style={{ color: "#9a9082", letterSpacing: "0.15em" }}>
-          Ospiti aggiuntivi
+          {t.extraGuestsLabel}
         </p>
         <button
           type="button"
@@ -37,13 +40,13 @@ export function ExtraGuestFields() {
           }}
         >
           <Plus size={12} />
-          Aggiungi
+          {t.addGuest}
         </button>
       </div>
 
       {fields.length === 0 && (
         <p className="text-center text-xs py-2" style={{ color: "#6f675c" }}>
-          Nessun ospite aggiuntivo — clicca &ldquo;Aggiungi&rdquo; per inserirne uno.
+          {t.noGuests}
         </p>
       )}
 
@@ -55,7 +58,7 @@ export function ExtraGuestFields() {
         >
           <div className="flex items-center justify-between">
             <p className="text-xs uppercase tracking-widest" style={{ color: "#c9a96e", letterSpacing: "0.15em" }}>
-              Ospite {index + 1}
+              {t.guestLabel} {index + 1}
             </p>
             <button
               type="button"
@@ -69,19 +72,19 @@ export function ExtraGuestFields() {
           </div>
 
           <div className="space-y-1.5">
-            <Label className="text-xs" style={{ color: "#9a9082" }}>Nome completo *</Label>
+            <Label className="text-xs" style={{ color: "#9a9082" }}>{t.guestNameLabel}</Label>
             <Input
               {...register(`extraGuests.${index}.name`)}
-              placeholder="Nome e cognome"
+              placeholder={t.guestNamePlaceholder}
               style={inputStyle}
               className="focus-visible:ring-1 focus-visible:ring-[#c9a96e] focus-visible:ring-offset-0"
             />
           </div>
           <div className="space-y-1.5">
-            <Label className="text-xs" style={{ color: "#9a9082" }}>Allergie</Label>
+            <Label className="text-xs" style={{ color: "#9a9082" }}>{t.guestDietaryLabel}</Label>
             <Textarea
               {...register(`extraGuests.${index}.dietary`)}
-              placeholder="Intolleranze o allergie..."
+              placeholder={t.guestDietaryPlaceholder}
               rows={2}
               style={{ ...inputStyle, resize: "none" }}
               className="focus-visible:ring-1 focus-visible:ring-[#c9a96e] focus-visible:ring-offset-0"

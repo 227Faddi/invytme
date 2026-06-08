@@ -4,6 +4,9 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Sparkles, Copy, Check } from "lucide-react";
 import { FloralDivider } from "./FloralDivider";
+import { weddingConfig } from "@/lib/wedding-config";
+
+const t = weddingConfig.text.gifts;
 
 interface GiftsSectionProps {
   blurb: string;
@@ -39,13 +42,13 @@ export function GiftsSection({ blurb, cardTitle, description, iban }: GiftsSecti
         >
           <FloralDivider />
           <p className="text-xs uppercase tracking-[0.4em]" style={{ color: "#c9a96e" }}>
-            Con tutto il nostro affetto
+            {t.label}
           </p>
           <h2
             className="text-4xl sm:text-5xl"
             style={{ fontFamily: "var(--font-serif)", fontStyle: "italic", color: "#d3b884" }}
           >
-            Regali
+            {t.title}
           </h2>
           <p
             className="max-w-md text-sm leading-relaxed"
@@ -81,7 +84,7 @@ export function GiftsSection({ blurb, cardTitle, description, iban }: GiftsSecti
               style={{ color: "#c9a96e" }}
             >
               <Sparkles size={12} />
-              {revealed ? "Nascondi" : "Rivelato"}
+              {revealed ? t.hide : t.reveal}
             </button>
           </div>
 
@@ -118,7 +121,7 @@ export function GiftsSection({ blurb, cardTitle, description, iban }: GiftsSecti
                 style={{ border: "1px solid rgba(201,169,110,0.3)", color: "#c9a96e" }}
               >
                 {copied ? <Check size={13} /> : <Copy size={13} />}
-                {copied ? "Copiato" : "Copia IBAN"}
+                {copied ? t.copied : t.copy}
               </button>
             </motion.div>
           )}

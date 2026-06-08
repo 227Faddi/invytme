@@ -2,6 +2,9 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { weddingConfig } from "@/lib/wedding-config";
+
+const t = weddingConfig.text.countdown;
 
 function getTimeLeft(target: Date) {
   const diff = target.getTime() - Date.now();
@@ -23,10 +26,10 @@ export function CountdownTimer({ targetDate }: { targetDate: Date }) {
   }, [targetDate]);
 
   const units = [
-    { label: "Giorni",   value: time.giorni },
-    { label: "Ore",      value: time.ore },
-    { label: "Minuti",   value: time.minuti },
-    { label: "Secondi",  value: time.secondi },
+    { label: t.days,    value: time.giorni },
+    { label: t.hours,   value: time.ore },
+    { label: t.minutes, value: time.minuti },
+    { label: t.seconds, value: time.secondi },
   ];
 
   return (
@@ -47,13 +50,13 @@ export function CountdownTimer({ targetDate }: { targetDate: Date }) {
             className="text-xs uppercase"
             style={{ color: "#c9a96e", letterSpacing: "0.4em" }}
           >
-            Il grande giorno si avvicina
+            {t.label}
           </p>
           <h2
             className="text-4xl sm:text-5xl"
             style={{ fontFamily: "var(--font-serif)", fontStyle: "italic", color: "#d3b884" }}
           >
-            Conto alla rovescia
+            {t.title}
           </h2>
         </div>
 

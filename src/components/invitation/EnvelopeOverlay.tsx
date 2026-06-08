@@ -2,6 +2,9 @@
 
 import { useState } from "react";
 import { MusicToggle } from "./MusicToggle";
+import { weddingConfig } from "@/lib/wedding-config";
+
+const t = weddingConfig.text.envelope;
 
 interface EnvelopeOverlayProps {
   initials: string;
@@ -84,7 +87,7 @@ export function EnvelopeOverlay({ initials, onOpen }: EnvelopeOverlayProps) {
             className="text-xs tracking-[0.4em] uppercase animate-fade-up-in"
             style={{ color: "rgba(201,169,110,0.7)", animationDelay: "0.3s", opacity: 0 }}
           >
-            Siete Cordialmente Invitati
+            {t.invitation}
           </p>
 
           {/* Envelope */}
@@ -148,7 +151,7 @@ export function EnvelopeOverlay({ initials, onOpen }: EnvelopeOverlayProps) {
                   className="text-[0.6rem] uppercase tracking-[0.3em]"
                   style={{ color: "#9a8466" }}
                 >
-                  Vi aspettiamo
+                  {t.letterNote}
                 </p>
               </div>
 
@@ -254,7 +257,7 @@ export function EnvelopeOverlay({ initials, onOpen }: EnvelopeOverlayProps) {
                 opacity: 0,
               }}
             >
-              Il nostro matrimonio
+              {t.title}
             </p>
             <p
               className="text-xs tracking-[0.35em] uppercase animate-fade-up-in"
@@ -264,7 +267,7 @@ export function EnvelopeOverlay({ initials, onOpen }: EnvelopeOverlayProps) {
                 opacity: 0,
               }}
             >
-              ✦ Tocca per aprire ✦
+              {t.cta}
             </p>
           </div>
         </div>

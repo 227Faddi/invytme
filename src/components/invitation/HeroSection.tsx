@@ -2,6 +2,9 @@
 
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
+import { weddingConfig } from "@/lib/wedding-config";
+
+const t = weddingConfig.text.hero;
 
 interface HeroSectionProps {
   groomName: string;
@@ -65,7 +68,7 @@ export function HeroSection({ groomName, brideName, date }: HeroSectionProps) {
           className="text-[0.7rem] font-light uppercase"
           style={{ color: "rgba(201,169,110,0.85)", letterSpacing: "0.4em" }}
         >
-          Ci aspettiamo
+          {t.intro}
         </motion.p>
 
         {/* Names */}
