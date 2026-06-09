@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
+import { AccommodationSection } from "@/components/invitation/AccommodationSection";
 import { CountdownTimer } from "@/components/invitation/CountdownTimer";
 import { DetailsSection } from "@/components/invitation/DetailsSection";
 import { EnvelopeOverlay } from "@/components/invitation/EnvelopeOverlay";
@@ -59,6 +60,8 @@ export default function Home() {
             iban={weddingConfig.giftIban}
           />
         )}
+
+        <AccommodationSection />
 
         {/* Footer */}
         <footer className="px-6 py-16" style={{ background: "#f3e9d8" }}>

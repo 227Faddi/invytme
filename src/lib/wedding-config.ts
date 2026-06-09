@@ -172,7 +172,20 @@ export const weddingConfig = {
       copied: "Copiato",
     },
 
-    // 8 · Footer
+    // 8 · Alloggio
+    accommodation: {
+      title: "Alloggio",
+      residenceName: "Residence Lu Nibareddu",
+      // Testo prima e dopo il nome del residence (evidenziato in oro).
+      descriptionBefore:
+        "Per chi non avesse ancora prenotato l’alloggio, consigliamo il ",
+      descriptionAfter:
+        ", situato nelle vicinanze della location del matrimonio. Per ricevere tutte le informazioni e procedere con la prenotazione, potrete contattarci direttamente.",
+      shuttle:
+        "Il residence metterà inoltre a disposizione degli invitati un servizio navetta di andata e ritorno da e per il luogo della cerimonia.",
+    },
+
+    // 9 · Footer
     footer: {
       closing: "Con amore,",
     },
