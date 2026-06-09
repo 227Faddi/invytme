@@ -3,8 +3,12 @@
 import { weddingConfig } from "@/lib/wedding-config";
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 const t = weddingConfig.text.hero;
+
+const BG_GRADIENT =
+  "linear-gradient(160deg, #1a0d08 0%, #2e1810 25%, #4a2c18 50%, #3a2010 75%, #1a0d08 100%)";
 
 interface HeroSectionProps {
   groomName: string;
@@ -13,27 +17,61 @@ interface HeroSectionProps {
 }
 
 export function HeroSection({ groomName, brideName, date }: HeroSectionProps) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  // Only reveal the video once it is genuinely playing. If iOS Safari blocks
+  // autoplay (e.g. Low Power Mode), the video — and its native play-button
+  // overlay — stays hidden behind the gradient cover, so no button is shown
+  // and the user can't control playback.
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    video.muted = true;
+    const onPlaying = () => setIsPlaying(true);
+    const onPause = () => setIsPlaying(false);
+
+    video.addEventListener("playing", onPlaying);
+    video.addEventListener("pause", onPause);
+    video.play().catch(() => {});
+
+    return () => {
+      video.removeEventListener("playing", onPlaying);
+      video.removeEventListener("pause", onPause);
+    };
+  }, []);
+
   return (
     <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden">
       {/* Background: looping video with warm gradient fallback */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "linear-gradient(160deg, #1a0d08 0%, #2e1810 25%, #4a2c18 50%, #3a2010 75%, #1a0d08 100%)",
-        }}
-      />
+      <div className="absolute inset-0" style={{ background: BG_GRADIENT }} />
       <video
-        className="absolute inset-0 h-full w-full object-cover"
+        ref={videoRef}
+        className="pointer-events-none absolute inset-0 h-full w-full object-cover"
         autoPlay
         muted
         loop
         playsInline
         preload="auto"
+        controls={false}
+        disablePictureInPicture
         aria-hidden="true"
+        tabIndex={-1}
       >
         <source src="/herobg.mp4" type="video/mp4" />
       </video>
+
+      {/* Cover layer over the video. iOS Safari draws a native play-button
+          overlay when it refuses to autoplay (e.g. Low Power Mode) that cannot
+          be hidden via CSS on modern iOS. We keep this gradient on top of the
+          video until it is genuinely playing, hiding both the play button and
+          any way to control the video. It fades out once playback starts. */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 transition-opacity duration-700"
+        style={{ background: BG_GRADIENT, opacity: isPlaying ? 0 : 1 }}
+      />
 
       {/* Warm overlay gradient */}
       <div
