@@ -40,7 +40,7 @@ export function GiftsSection({
   return (
     <section
       className="relative overflow-hidden px-6 py-24"
-      style={{ background: "#15120e" }}
+      style={{ background: "#f3e9d8" }}
     >
       <div className="mx-auto max-w-xl">
         {/* Heading */}
@@ -54,7 +54,7 @@ export function GiftsSection({
           <FloralDivider />
           <p
             className="text-xs uppercase tracking-[0.4em]"
-            style={{ color: "#c9a96e" }}
+            style={{ color: "#b08d4f" }}
           >
             {t.label}
           </p>
@@ -63,7 +63,7 @@ export function GiftsSection({
             style={{
               fontFamily: "var(--font-serif)",
               fontStyle: "italic",
-              color: "#d3b884",
+              color: "#c9a96e",
             }}
           >
             {t.title}
@@ -73,7 +73,7 @@ export function GiftsSection({
             style={{
               fontFamily: "var(--font-serif)",
               fontStyle: "italic",
-              color: "#9a9082",
+              color: "#7c6f5a",
               fontSize: "1.05rem",
             }}
           >
@@ -96,7 +96,7 @@ export function GiftsSection({
           {/* Card header */}
           <div
             className="flex items-center justify-between px-6 py-4"
-            style={{ borderBottom: "1px solid rgba(201,169,110,0.15)" }}
+            style={{ borderBottom: "1px solid rgba(176, 141, 79,0.15)" }}
           >
             <span
               className="text-lg"
@@ -112,7 +112,7 @@ export function GiftsSection({
               type="button"
               onClick={() => setRevealed((r) => !r)}
               className="flex items-center gap-1.5 text-xs uppercase tracking-[0.2em] transition-colors"
-              style={{ color: "#c9a96e" }}
+              style={{ color: "#b08d4f" }}
             >
               <Sparkles size={12} />
               {revealed ? t.hide : t.reveal}
@@ -129,7 +129,7 @@ export function GiftsSection({
             >
               <p
                 className="text-sm leading-relaxed"
-                style={{ color: "#9a9082" }}
+                style={{ color: "#7c6f5a" }}
               >
                 {description}
               </p>
@@ -138,10 +138,10 @@ export function GiftsSection({
               <div
                 className="space-y-2 px-4 py-4 text-sm tracking-wider"
                 style={{
-                  background: "#15120e",
-                  border: "1px solid rgba(201,169,110,0.25)",
+                  background: "#f3e9d8",
+                  border: "1px solid rgba(176, 141, 79,0.25)",
                   fontFamily: "var(--font-mono)",
-                  color: "#ece2d2",
+                  color: "#3a2f22",
                 }}
               >
                 <div className="pb-1 text-xs opacity-60">Intestato a:</div>
@@ -158,8 +158,8 @@ export function GiftsSection({
                 onClick={copyIban}
                 className="flex w-full items-center justify-center gap-2 py-3 text-xs uppercase tracking-[0.2em] transition-colors"
                 style={{
-                  border: "1px solid rgba(201,169,110,0.3)",
-                  color: "#c9a96e",
+                  border: "1px solid rgba(176, 141, 79,0.3)",
+                  color: "#b08d4f",
                 }}
               >
                 {copied ? <Check size={13} /> : <Copy size={13} />}

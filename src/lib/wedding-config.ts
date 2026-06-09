@@ -38,7 +38,7 @@ export const weddingConfig = {
     {
       question: "Dove posso parcheggiare?",
       answer:
-        "È disponibile un ampio parcheggio gratuito presso la location. Potete parcheggiare direttamente nei pressi della villa.",
+        "È disponibile un ampio parcheggio gratuito presso la location. Potete parcheggiare direttamente nei pressi del locale.",
     },
     {
       question: "Qual è il dress code?",
@@ -66,8 +66,8 @@ export const weddingConfig = {
   giftCardTitle: "Contributo",
   giftDescription:
     "Per chi lo desidera, contributo in busta il giorno delle nozze oppure tramite bonifico.",
-  giftAccountName: "Giulio & Kary",
-  giftIban: "IT 1234 5678 9101 1121 3141 516",
+  giftAccountName: "Giulio Ciro Formicola",
+  giftIban: "IT 13J0 3058 0160 4100 5716 83064",
 
   // ─────────────────────────────────────────────
   // 7 · FOOTER

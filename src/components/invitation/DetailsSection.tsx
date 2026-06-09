@@ -30,8 +30,8 @@ function VenueCard({
     <motion.div
       className="flex w-full flex-col overflow-hidden rounded-[32px]"
       style={{
-        background: "#1e1a15",
-        border: "1px solid rgba(201,169,110,0.18)",
+        background: "#faf3e6",
+        border: "1px solid rgba(176, 141, 79,0.18)",
         boxShadow: "0 8px 40px rgba(0,0,0,0.35)",
       }}
       initial={{ opacity: 0, y: 50 }}
@@ -42,18 +42,18 @@ function VenueCard({
       {/* Card header */}
       <div
         className="flex flex-col items-center gap-2 px-6 py-8"
-        style={{ borderBottom: "1px solid rgba(201,169,110,0.15)" }}
+        style={{ borderBottom: "1px solid rgba(176, 141, 79,0.15)" }}
       >
         {/* Type label */}
         <div className="flex items-center gap-3">
-          <div className="h-px w-8" style={{ background: "#c9a96e" }} />
+          <div className="h-px w-8" style={{ background: "#b08d4f" }} />
           <p
             className="text-xs uppercase tracking-[0.35em]"
-            style={{ color: "#c9a96e" }}
+            style={{ color: "#b08d4f" }}
           >
             {type}
           </p>
-          <div className="h-px w-8" style={{ background: "#c9a96e" }} />
+          <div className="h-px w-8" style={{ background: "#b08d4f" }} />
         </div>
 
         <h3
@@ -61,7 +61,7 @@ function VenueCard({
           style={{
             fontFamily: "var(--font-serif)",
             fontStyle: "italic",
-            color: "#ece2d2",
+            color: "#3a2f22",
           }}
         >
           {venue}
@@ -69,14 +69,14 @@ function VenueCard({
 
         <div
           className="mt-1 flex flex-col items-center gap-1.5 text-sm"
-          style={{ color: "#9a9082" }}
+          style={{ color: "#7c6f5a" }}
         >
           <span className="flex items-center gap-1.5">
-            <MapPin size={13} style={{ color: "#c9a96e" }} />
+            <MapPin size={13} style={{ color: "#b08d4f" }} />
             {address}
           </span>
           <span className="flex items-center gap-1.5">
-            <Clock size={13} style={{ color: "#c9a96e" }} />
+            <Clock size={13} style={{ color: "#b08d4f" }} />
             {t.timePrefix} {time}
           </span>
         </div>
@@ -103,7 +103,7 @@ export function DetailsSection({ ceremony }: DetailsSectionProps) {
   return (
     <section
       className="relative overflow-hidden px-6 py-24"
-      style={{ background: "#15120e" }}
+      style={{ background: "#f3e9d8" }}
     >
       <div className="mx-auto max-w-5xl">
         {/* Heading */}
@@ -116,7 +116,7 @@ export function DetailsSection({ ceremony }: DetailsSectionProps) {
         >
           <p
             className="text-xs uppercase tracking-[0.4em]"
-            style={{ color: "#c9a96e" }}
+            style={{ color: "#b08d4f" }}
           >
             {t.label}
           </p>
@@ -125,12 +125,12 @@ export function DetailsSection({ ceremony }: DetailsSectionProps) {
             style={{
               fontFamily: "var(--font-serif)",
               fontStyle: "italic",
-              color: "#d3b884",
+              color: "#c9a96e",
             }}
           >
             {t.title}
           </h2>
-          <p className="text-sm" style={{ color: "#9a9082" }}>
+          <p className="text-sm" style={{ color: "#7c6f5a" }}>
             {t.subtitle}
           </p>
           <FloralDivider />

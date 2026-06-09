@@ -55,7 +55,7 @@ export function HeroSection({ groomName, brideName, date }: HeroSectionProps) {
       {/* Thin gold frame */}
       <div
         className="absolute inset-4 pointer-events-none hidden sm:block"
-        style={{ border: "1px solid rgba(201,169,110,0.2)" }}
+        style={{ border: "1px solid rgba(176, 141, 79,0.2)" }}
       />
 
       {/* Content */}
@@ -70,7 +70,7 @@ export function HeroSection({ groomName, brideName, date }: HeroSectionProps) {
           <p
             className="text-[0.7rem] font-bold uppercase"
             style={{
-              color: "rgba(201,169,110,0.95)",
+              color: "rgba(176, 141, 79,0.95)",
               letterSpacing: "0.4em",
               textShadow: "0 1px 4px rgba(0,0,0,0.5)",
             }}
@@ -136,17 +136,17 @@ export function HeroSection({ groomName, brideName, date }: HeroSectionProps) {
           <div
             className="h-px w-10"
             style={{
-              background: "linear-gradient(to right, transparent, #c9a96e)",
+              background: "linear-gradient(to right, transparent, #b08d4f)",
             }}
           />
           <div
             className="h-1 w-1 rotate-45"
-            style={{ background: "#c9a96e" }}
+            style={{ background: "#b08d4f" }}
           />
           <div
             className="h-px w-10"
             style={{
-              background: "linear-gradient(to left, transparent, #c9a96e)",
+              background: "linear-gradient(to left, transparent, #b08d4f)",
             }}
           />
         </motion.div>
@@ -161,7 +161,7 @@ export function HeroSection({ groomName, brideName, date }: HeroSectionProps) {
           <p
             className="text-xs font-bold uppercase sm:text-sm"
             style={{
-              color: "rgba(201,169,110,0.95)",
+              color: "rgba(176, 141, 79,0.95)",
               letterSpacing: "0.35em",
               textShadow: "0 1px 4px rgba(0,0,0,0.5)",
             }}
@@ -182,7 +182,7 @@ export function HeroSection({ groomName, brideName, date }: HeroSectionProps) {
           className="text-xs tracking-widest"
           style={{
             fontFamily: "var(--font-serif)",
-            color: "rgba(201,169,110,0.8)",
+            color: "rgba(176, 141, 79,0.8)",
           }}
         >
           01
@@ -190,7 +190,7 @@ export function HeroSection({ groomName, brideName, date }: HeroSectionProps) {
         <ChevronDown
           size={14}
           className="animate-bounce"
-          style={{ color: "rgba(201,169,110,0.7)" }}
+          style={{ color: "rgba(176, 141, 79,0.7)" }}
         />
       </motion.div>
     </section>

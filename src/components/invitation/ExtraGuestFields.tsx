@@ -11,10 +11,10 @@ import type { RsvpFormValues } from "./RsvpForm";
 const t = weddingConfig.text.rsvp;
 
 const inputStyle = {
-  background: "#15120e",
-  border: "1px solid rgba(201,169,110,0.3)",
+  background: "#f3e9d8",
+  border: "1px solid rgba(176, 141, 79,0.3)",
   borderRadius: 0,
-  color: "#ece2d2",
+  color: "#3a2f22",
   fontSize: "0.875rem",
 };
 
@@ -30,7 +30,7 @@ export function ExtraGuestFields() {
       <div className="flex items-center justify-between">
         <p
           className="text-xs uppercase tracking-widest"
-          style={{ color: "#9a9082", letterSpacing: "0.15em" }}
+          style={{ color: "#7c6f5a", letterSpacing: "0.15em" }}
         >
           {t.extraGuestsLabel}
         </p>
@@ -39,8 +39,8 @@ export function ExtraGuestFields() {
           onClick={() => append({ name: "", dietary: "" })}
           className="flex items-center gap-1.5 text-xs uppercase tracking-wider py-1.5 px-3 transition-colors"
           style={{
-            border: "1px solid rgba(201,169,110,0.4)",
-            color: "#c9a96e",
+            border: "1px solid rgba(176, 141, 79,0.4)",
+            color: "#b08d4f",
             background: "transparent",
             letterSpacing: "0.15em",
           }}
@@ -68,7 +68,7 @@ export function ExtraGuestFields() {
           <div className="flex items-center justify-between">
             <p
               className="text-xs uppercase tracking-widest"
-              style={{ color: "#c9a96e", letterSpacing: "0.15em" }}
+              style={{ color: "#b08d4f", letterSpacing: "0.15em" }}
             >
               {t.guestLabel} {index + 1}
             </p>
@@ -76,7 +76,7 @@ export function ExtraGuestFields() {
               type="button"
               onClick={() => remove(index)}
               className="transition-colors"
-              style={{ color: "#9a9082" }}
+              style={{ color: "#7c6f5a" }}
               aria-label="Rimuovi ospite"
             >
               <Trash2 size={13} />
@@ -84,18 +84,18 @@ export function ExtraGuestFields() {
           </div>
 
           <div className="space-y-1.5">
-            <Label className="text-xs" style={{ color: "#9a9082" }}>
+            <Label className="text-xs" style={{ color: "#7c6f5a" }}>
               {t.guestNameLabel}
             </Label>
             <Input
               {...register(`extraGuests.${index}.name`)}
               placeholder={t.guestNamePlaceholder}
               style={inputStyle}
-              className="focus-visible:ring-1 focus-visible:ring-[#c9a96e] focus-visible:ring-offset-0"
+              className="focus-visible:ring-1 focus-visible:ring-[#b08d4f] focus-visible:ring-offset-0"
             />
           </div>
           <div className="space-y-1.5">
-            <Label className="text-xs" style={{ color: "#9a9082" }}>
+            <Label className="text-xs" style={{ color: "#7c6f5a" }}>
               {t.guestDietaryLabel}
             </Label>
             <Textarea
@@ -103,7 +103,7 @@ export function ExtraGuestFields() {
               placeholder={t.guestDietaryPlaceholder}
               rows={2}
               style={{ ...inputStyle, resize: "none" }}
-              className="focus-visible:ring-1 focus-visible:ring-[#c9a96e] focus-visible:ring-offset-0"
+              className="focus-visible:ring-1 focus-visible:ring-[#b08d4f] focus-visible:ring-offset-0"
             />
           </div>
         </div>

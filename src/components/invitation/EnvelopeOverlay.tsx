@@ -21,11 +21,11 @@ function BotanicalCorner({ className }: { className: string }) {
       className={className}
       aria-hidden="true"
     >
-      <path d="M10 110 Q30 60 80 20" stroke="#c9a96e" strokeWidth="1.2" fill="none" opacity="0.6" />
-      <path d="M10 110 Q50 80 90 10" stroke="#c9a96e" strokeWidth="0.8" fill="none" opacity="0.4" />
-      <circle cx="80" cy="22" r="3" fill="#c9a96e" opacity="0.5" />
-      <circle cx="68" cy="36" r="2" fill="#c9a96e" opacity="0.4" />
-      <circle cx="45" cy="63" r="2.5" fill="#c9a96e" opacity="0.45" />
+      <path d="M10 110 Q30 60 80 20" stroke="#b08d4f" strokeWidth="1.2" fill="none" opacity="0.6" />
+      <path d="M10 110 Q50 80 90 10" stroke="#b08d4f" strokeWidth="0.8" fill="none" opacity="0.4" />
+      <circle cx="80" cy="22" r="3" fill="#b08d4f" opacity="0.5" />
+      <circle cx="68" cy="36" r="2" fill="#b08d4f" opacity="0.4" />
+      <circle cx="45" cy="63" r="2.5" fill="#b08d4f" opacity="0.45" />
     </svg>
   );
 }
@@ -58,7 +58,7 @@ export function EnvelopeOverlay({ initials, onOpen }: EnvelopeOverlayProps) {
         className="fixed inset-0 z-50 flex flex-col items-center justify-center overflow-hidden transition-opacity duration-700"
         style={{
           background:
-            "radial-gradient(circle at 50% 40%, #2e251c 0%, #1c150e 60%, #140f0a 100%)",
+            "radial-gradient(circle at 50% 40%, #faf3e6 0%, #f3e9d8 60%, #e8dcc4 100%)",
           opacity: opening ? 0 : 1,
           transitionDelay: opening ? "1200ms" : "0ms",
           pointerEvents: opening ? "none" : "auto",
@@ -73,11 +73,11 @@ export function EnvelopeOverlay({ initials, onOpen }: EnvelopeOverlayProps) {
         {/* Gold border frame */}
         <div
           className="absolute inset-6 pointer-events-none"
-          style={{ border: "1px solid rgba(201,169,110,0.25)" }}
+          style={{ border: "1px solid rgba(176, 141, 79,0.25)" }}
         />
         <div
           className="absolute inset-8 pointer-events-none"
-          style={{ border: "1px solid rgba(201,169,110,0.12)" }}
+          style={{ border: "1px solid rgba(176, 141, 79,0.12)" }}
         />
 
         {/* Content */}
@@ -85,7 +85,7 @@ export function EnvelopeOverlay({ initials, onOpen }: EnvelopeOverlayProps) {
           {/* Top label */}
           <p
             className="text-xs tracking-[0.4em] uppercase animate-fade-up-in"
-            style={{ color: "rgba(201,169,110,0.7)", animationDelay: "0.3s", opacity: 0 }}
+            style={{ color: "rgba(176, 141, 79,0.7)", animationDelay: "0.3s", opacity: 0 }}
           >
             {t.invitation}
           </p>
@@ -146,7 +146,7 @@ export function EnvelopeOverlay({ initials, onOpen }: EnvelopeOverlayProps) {
                 >
                   {initials}
                 </span>
-                <div className="h-px w-12" style={{ background: "#c9a96e" }} />
+                <div className="h-px w-12" style={{ background: "#b08d4f" }} />
                 <p
                   className="text-[0.6rem] uppercase tracking-[0.3em]"
                   style={{ color: "#9a8466" }}
@@ -252,7 +252,7 @@ export function EnvelopeOverlay({ initials, onOpen }: EnvelopeOverlayProps) {
               style={{
                 fontFamily: "var(--font-serif)",
                 fontStyle: "italic",
-                color: "#ece2d2",
+                color: "#3a2f22",
                 animationDelay: "0.6s",
                 opacity: 0,
               }}
@@ -262,7 +262,7 @@ export function EnvelopeOverlay({ initials, onOpen }: EnvelopeOverlayProps) {
             <p
               className="text-xs tracking-[0.35em] uppercase animate-fade-up-in"
               style={{
-                color: "rgba(201,169,110,0.8)",
+                color: "rgba(176, 141, 79,0.8)",
                 animationDelay: "1s",
                 opacity: 0,
               }}

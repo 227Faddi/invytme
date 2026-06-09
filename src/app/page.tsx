@@ -61,13 +61,13 @@ export default function Home() {
         )}
 
         {/* Footer */}
-        <footer className="px-6 py-16" style={{ background: "#15120e" }}>
+        <footer className="px-6 py-16" style={{ background: "#f3e9d8" }}>
           <div className="mx-auto flex max-w-5xl flex-col items-center gap-4 text-center">
             {/* Couple photo */}
             <div
               className="size-60 overflow-hidden rounded-full"
               style={{
-                border: "1px solid rgba(201,169,110,0.5)",
+                border: "1px solid rgba(176, 141, 79,0.5)",
                 boxShadow: "0 8px 30px rgba(0,0,0,0.45)",
               }}
             >
@@ -83,12 +83,12 @@ export default function Home() {
               style={{
                 fontFamily: "var(--font-serif)",
                 fontStyle: "italic",
-                color: "#ece2d2",
+                color: "#3a2f22",
               }}
             >
               {weddingConfig.footerMessage}
             </p>
-            <p className="text-sm" style={{ color: "#9a9082" }}>
+            <p className="text-sm" style={{ color: "#7c6f5a" }}>
               {weddingConfig.text.footer.closing}
             </p>
             <p
@@ -96,14 +96,14 @@ export default function Home() {
               style={{
                 fontFamily: "var(--font-serif)",
                 fontStyle: "italic",
-                color: "#c9a96e",
+                color: "#b08d4f",
               }}
             >
               {weddingConfig.brideName} &amp; {weddingConfig.groomName}
             </p>
             <p
               className="mt-4 text-xs uppercase tracking-[0.3em]"
-              style={{ color: "rgba(201,169,110,0.6)" }}
+              style={{ color: "rgba(176, 141, 79,0.6)" }}
             >
               {weddingConfig.dateShort}
             </p>

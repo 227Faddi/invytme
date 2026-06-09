@@ -52,15 +52,15 @@ function AttendingOption({
       style={
         selected
           ? {
-              background: "linear-gradient(135deg, #c9a96e, #a8834a)",
+              background: "linear-gradient(135deg, #b08d4f, #a8834a)",
               color: "#15120e",
-              border: "1px solid #c9a96e",
-              boxShadow: "0 4px 16px rgba(201,169,110,0.25)",
+              border: "1px solid #b08d4f",
+              boxShadow: "0 4px 16px rgba(176, 141, 79,0.25)",
             }
           : {
               background: "transparent",
-              color: "#9a9082",
-              border: "1px solid rgba(201,169,110,0.3)",
+              color: "#7c6f5a",
+              border: "1px solid rgba(176, 141, 79,0.3)",
             }
       }
     >
@@ -81,7 +81,7 @@ function Field({
 }) {
   return (
     <div className="space-y-1.5">
-      <Label className="text-xs uppercase tracking-widest" style={{ color: "#9a9082", letterSpacing: "0.15em" }}>
+      <Label className="text-xs uppercase tracking-widest" style={{ color: "#7c6f5a", letterSpacing: "0.15em" }}>
         {label}
       </Label>
       {children}
@@ -141,7 +141,7 @@ export function RsvpForm() {
   /* ── Success state ── */
   if (submitted) {
     return (
-      <section className="px-6 py-24" style={{ background: "#15120e" }}>
+      <section className="px-6 py-24" style={{ background: "#f3e9d8" }}>
         <div className="mx-auto max-w-lg text-center">
           <motion.div
             className="flex flex-col items-center gap-5"
@@ -149,17 +149,17 @@ export function RsvpForm() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6 }}
           >
-            <CheckCircle2 size={56} style={{ color: "#c9a96e" }} />
+            <CheckCircle2 size={56} style={{ color: "#b08d4f" }} />
             <h2
               className="text-4xl sm:text-5xl"
-              style={{ fontFamily: "var(--font-serif)", fontStyle: "italic", color: "#d3b884" }}
+              style={{ fontFamily: "var(--font-serif)", fontStyle: "italic", color: "#c9a96e" }}
             >
               {t.successTitle}
             </h2>
             <FloralDivider />
             <p
               className="whitespace-pre-line text-sm leading-relaxed"
-              style={{ color: "#9a9082" }}
+              style={{ color: "#7c6f5a" }}
             >
               {t.successMessage}
             </p>
@@ -171,20 +171,20 @@ export function RsvpForm() {
 
   /* ── Form ── */
   const inputStyle = {
-    background: "#15120e",
-    border: "1px solid rgba(201,169,110,0.3)",
+    background: "#f3e9d8",
+    border: "1px solid rgba(176, 141, 79,0.3)",
     borderRadius: 16,
-    color: "#ece2d2",
+    color: "#3a2f22",
     fontSize: "0.875rem",
   };
 
-  const focusRingStyle = "focus-visible:ring-1 focus-visible:ring-[#c9a96e] focus-visible:ring-offset-0";
+  const focusRingStyle = "focus-visible:ring-1 focus-visible:ring-[#b08d4f] focus-visible:ring-offset-0";
 
   return (
     <section
       id="rsvp"
       className="relative overflow-hidden px-6 py-24"
-      style={{ background: "#15120e" }}
+      style={{ background: "#f3e9d8" }}
     >
       <div className="mx-auto max-w-xl">
         {/* Heading */}
@@ -197,20 +197,20 @@ export function RsvpForm() {
         >
           <p
             className="text-xs uppercase tracking-[0.4em]"
-            style={{ color: "#c9a96e" }}
+            style={{ color: "#b08d4f" }}
           >
             {t.label}
           </p>
           <h2
             className="text-4xl sm:text-5xl"
-            style={{ fontFamily: "var(--font-serif)", fontStyle: "italic", color: "#d3b884" }}
+            style={{ fontFamily: "var(--font-serif)", fontStyle: "italic", color: "#c9a96e" }}
           >
             {t.title}
           </h2>
           <FloralDivider />
-          <p className="text-sm" style={{ color: "#9a9082" }}>
+          <p className="text-sm" style={{ color: "#7c6f5a" }}>
             {t.deadlinePrefix}{" "}
-            <span style={{ color: "#ece2d2" }}>{t.deadlineDate}</span>
+            <span style={{ color: "#3a2f22" }}>{t.deadlineDate}</span>
           </p>
         </motion.div>
 
@@ -221,8 +221,8 @@ export function RsvpForm() {
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.8, delay: 0.1 }}
           style={{
-            background: "#1e1a15",
-            border: "1px solid rgba(201,169,110,0.18)",
+            background: "#faf3e6",
+            border: "1px solid rgba(176, 141, 79,0.18)",
             boxShadow: "0 8px 50px rgba(0,0,0,0.4)",
           }}
           className="rounded-[32px] p-8 sm:p-10"
@@ -252,7 +252,7 @@ export function RsvpForm() {
 
               {/* Attending */}
               <div className="space-y-2">
-                <p className="text-xs uppercase tracking-widest" style={{ color: "#9a9082", letterSpacing: "0.15em" }}>
+                <p className="text-xs uppercase tracking-widest" style={{ color: "#7c6f5a", letterSpacing: "0.15em" }}>
                   {t.attendingQuestion}
                 </p>
                 <div className="flex gap-0">
@@ -305,12 +305,12 @@ export function RsvpForm() {
                 style={{
                   background: isSubmitting
                     ? "#6b5a3a"
-                    : "linear-gradient(135deg, #d3b884, #a8834a)",
+                    : "linear-gradient(135deg, #c9a96e, #a8834a)",
                   color: "#15120e",
                   letterSpacing: "0.25em",
                   boxShadow: isSubmitting
                     ? "none"
-                    : "0 4px 20px rgba(201,169,110,0.3)",
+                    : "0 4px 20px rgba(176, 141, 79,0.3)",
                 }}
               >
                 {isSubmitting ? (

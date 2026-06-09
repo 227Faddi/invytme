@@ -4,20 +4,20 @@ export function FloralDivider({ className = "" }: { className?: string }) {
       {/* Left line */}
       <div
         className="h-px w-16"
-        style={{ background: "linear-gradient(to right, transparent, #c9a96e)" }}
+        style={{ background: "linear-gradient(to right, transparent, #b08d4f)" }}
       />
 
       {/* Center dot */}
       <div
         className="h-1.5 w-1.5 rotate-45"
-        style={{ background: "#c9a96e" }}
+        style={{ background: "#b08d4f" }}
         aria-hidden="true"
       />
 
       {/* Right line */}
       <div
         className="h-px w-16"
-        style={{ background: "linear-gradient(to left, transparent, #c9a96e)" }}
+        style={{ background: "linear-gradient(to left, transparent, #b08d4f)" }}
       />
     </div>
   );

@@ -64,7 +64,7 @@ export function CountdownTimer({ targetDate }: { targetDate: Date }) {
 
   return (
     <section
-      style={{ background: "#15120e" }}
+      style={{ background: "#f3e9d8" }}
       className="relative overflow-hidden px-6 py-24"
     >
       <motion.div
@@ -78,7 +78,7 @@ export function CountdownTimer({ targetDate }: { targetDate: Date }) {
         <div className="flex flex-col items-center gap-3 text-center">
           <p
             className="text-xs uppercase"
-            style={{ color: "#c9a96e", letterSpacing: "0.4em" }}
+            style={{ color: "#b08d4f", letterSpacing: "0.4em" }}
           >
             {t.label}
           </p>
@@ -87,7 +87,7 @@ export function CountdownTimer({ targetDate }: { targetDate: Date }) {
             style={{
               fontFamily: "var(--font-serif)",
               fontStyle: "italic",
-              color: "#d3b884",
+              color: "#c9a96e",
             }}
           >
             {t.title}
@@ -95,7 +95,7 @@ export function CountdownTimer({ targetDate }: { targetDate: Date }) {
           {t.subtitle && (
             <p
               className="text-sm uppercase sm:text-base"
-              style={{ color: "#c9a96e", letterSpacing: "0.25em" }}
+              style={{ color: "#b08d4f", letterSpacing: "0.25em" }}
             >
               {t.subtitle.replace("{date}", weddingConfig.date)}
             </p>
@@ -105,7 +105,7 @@ export function CountdownTimer({ targetDate }: { targetDate: Date }) {
         {/* Countdown boxes — connected row */}
         <div
           className="grid w-full max-w-2xl grid-cols-4"
-          style={{ border: "1px solid rgba(201,169,110,0.22)" }}
+          style={{ border: "1px solid rgba(176, 141, 79,0.22)" }}
         >
           {units.map(({ label, value }, i) => (
             <motion.div
@@ -113,7 +113,7 @@ export function CountdownTimer({ targetDate }: { targetDate: Date }) {
               className="flex flex-col items-center justify-center gap-3 py-8 sm:py-10"
               style={
                 i < units.length - 1
-                  ? { borderRight: "1px solid rgba(201,169,110,0.22)" }
+                  ? { borderRight: "1px solid rgba(176, 141, 79,0.22)" }
                   : undefined
               }
               initial={{ opacity: 0, y: 20 }}
@@ -123,13 +123,13 @@ export function CountdownTimer({ targetDate }: { targetDate: Date }) {
             >
               <span
                 className="tabular-nums text-4xl sm:text-6xl"
-                style={{ fontFamily: "var(--font-serif)", color: "#ece2d2" }}
+                style={{ fontFamily: "var(--font-serif)", color: "#3a2f22" }}
               >
                 {String(value).padStart(2, "0")}
               </span>
               <p
                 className="text-[0.65rem] uppercase"
-                style={{ color: "#9a9082", letterSpacing: "0.2em" }}
+                style={{ color: "#7c6f5a", letterSpacing: "0.2em" }}
               >
                 {label}
               </p>

@@ -45,46 +45,46 @@
 }
 
 :root {
-  /* Dark luxury theme */
-  --background: #15120e;
-  --foreground: #ece2d2;
-  --card: #1e1a15;
-  --card-foreground: #ece2d2;
-  --popover: #1e1a15;
-  --popover-foreground: #ece2d2;
-  --primary: #c9a96e;
-  --primary-foreground: #15120e;
-  --secondary: #1a1612;
-  --secondary-foreground: #ece2d2;
-  --muted: #221d17;
-  --muted-foreground: #9a9082;
-  --accent: #2a241c;
-  --accent-foreground: #ece2d2;
+  /* Light beige luxury theme */
+  --background: #f3e9d8;
+  --foreground: #3a2f22;
+  --card: #faf3e6;
+  --card-foreground: #3a2f22;
+  --popover: #faf3e6;
+  --popover-foreground: #3a2f22;
+  --primary: #b08d4f;
+  --primary-foreground: #faf3e6;
+  --secondary: #ece0c9;
+  --secondary-foreground: #3a2f22;
+  --muted: #ece0c9;
+  --muted-foreground: #7c6f5a;
+  --accent: #e6d7bc;
+  --accent-foreground: #3a2f22;
   --destructive: oklch(0.6 0.2 25);
-  --border: rgba(201, 169, 110, 0.18);
-  --input: rgba(201, 169, 110, 0.25);
-  --ring: #c9a96e;
+  --border: rgba(176, 141, 79, 0.28);
+  --input: rgba(176, 141, 79, 0.35);
+  --ring: #b08d4f;
   --radius: 1rem;
-  --sidebar: #15120e;
-  --sidebar-foreground: #ece2d2;
-  --sidebar-primary: #c9a96e;
-  --sidebar-primary-foreground: #15120e;
-  --sidebar-accent: #1a1612;
-  --sidebar-accent-foreground: #ece2d2;
-  --sidebar-border: rgba(201, 169, 110, 0.18);
-  --sidebar-ring: #c9a96e;
+  --sidebar: #f3e9d8;
+  --sidebar-foreground: #3a2f22;
+  --sidebar-primary: #b08d4f;
+  --sidebar-primary-foreground: #faf3e6;
+  --sidebar-accent: #ece0c9;
+  --sidebar-accent-foreground: #3a2f22;
+  --sidebar-border: rgba(176, 141, 79, 0.28);
+  --sidebar-ring: #b08d4f;
 
   /* Wedding palette — raw values for use in SVG and inline styles */
-  --w-bg: #15120e;
-  --w-bg-soft: #1a1612;
-  --w-card: #1e1a15;
-  --w-border: rgba(201, 169, 110, 0.18);
-  --w-gold: #c9a96e;
-  --w-gold-bright: #d3b884;
-  --w-gold-dark: #a8834a;
-  --w-cream: #ece2d2;
-  --w-muted: #9a9082;
-  --w-sage: #9aa382;
+  --w-bg: #f3e9d8;
+  --w-bg-soft: #ece0c9;
+  --w-card: #faf3e6;
+  --w-border: rgba(176, 141, 79, 0.28);
+  --w-gold: #b08d4f;
+  --w-gold-bright: #c9a96e;
+  --w-gold-dark: #8a6d3a;
+  --w-cream: #3a2f22;
+  --w-muted: #7c6f5a;
+  --w-sage: #7d8560;
 }
 
 @layer base {

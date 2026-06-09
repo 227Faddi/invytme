@@ -21,7 +21,7 @@ export function FaqSection({ items }: { items: FaqItem[] }) {
   return (
     <section
       className="relative overflow-hidden px-6 py-24"
-      style={{ background: "#15120e" }}
+      style={{ background: "#f3e9d8" }}
     >
       <div className="relative mx-auto max-w-2xl">
         {/* Heading */}
@@ -34,7 +34,7 @@ export function FaqSection({ items }: { items: FaqItem[] }) {
         >
           <p
             className="text-xs uppercase tracking-[0.4em]"
-            style={{ color: "#c9a96e" }}
+            style={{ color: "#b08d4f" }}
           >
             {t.label}
           </p>
@@ -43,7 +43,7 @@ export function FaqSection({ items }: { items: FaqItem[] }) {
             style={{
               fontFamily: "var(--font-serif)",
               fontStyle: "italic",
-              color: "#d3b884",
+              color: "#c9a96e",
             }}
           >
             {t.title}
@@ -68,15 +68,15 @@ export function FaqSection({ items }: { items: FaqItem[] }) {
                 value={`item-${i}`}
                 className="overflow-hidden rounded-[32px]"
                 style={{
-                  background: "#1e1a15",
-                  border: "1px solid rgba(201,169,110,0.18)",
+                  background: "#faf3e6",
+                  border: "1px solid rgba(176, 141, 79,0.18)",
                 }}
               >
                 <AccordionTrigger
                   className="px-6 py-4 text-left hover:no-underline"
                   style={{
                     fontFamily: "var(--font-serif)",
-                    color: "#ece2d2",
+                    color: "#3a2f22",
                     fontWeight: 400,
                     fontSize: "1.15rem",
                   }}
@@ -85,7 +85,7 @@ export function FaqSection({ items }: { items: FaqItem[] }) {
                 </AccordionTrigger>
                 <AccordionContent
                   className="px-6 pb-5 text-sm leading-relaxed"
-                  style={{ color: "#9a9082" }}
+                  style={{ color: "#7c6f5a" }}
                 >
                   {item.answer}
                 </AccordionContent>

@@ -31,9 +31,9 @@ export function MusicToggle({ src, playing }: { src: string; playing: boolean })
           aria-label={muted ? "Attiva musica" : "Disattiva musica"}
           className="fixed bottom-6 right-6 z-50 flex h-12 w-12 items-center justify-center rounded-full transition-all hover:scale-105"
           style={{
-            background: "rgba(21,18,14,0.8)",
-            border: "1px solid rgba(201,169,110,0.45)",
-            color: "#c9a96e",
+            background: "rgba(250,243,230,0.85)",
+            border: "1px solid rgba(176, 141, 79,0.45)",
+            color: "#b08d4f",
             backdropFilter: "blur(8px)",
           }}
         >
