@@ -1,8 +1,8 @@
 "use client";
 
+import { weddingConfig } from "@/lib/wedding-config";
 import { useState } from "react";
 import { MusicToggle } from "./MusicToggle";
-import { weddingConfig } from "@/lib/wedding-config";
 
 const t = weddingConfig.text.envelope;
 
@@ -21,8 +21,20 @@ function BotanicalCorner({ className }: { className: string }) {
       className={className}
       aria-hidden="true"
     >
-      <path d="M10 110 Q30 60 80 20" stroke="#b08d4f" strokeWidth="1.2" fill="none" opacity="0.6" />
-      <path d="M10 110 Q50 80 90 10" stroke="#b08d4f" strokeWidth="0.8" fill="none" opacity="0.4" />
+      <path
+        d="M10 110 Q30 60 80 20"
+        stroke="#b08d4f"
+        strokeWidth="1.2"
+        fill="none"
+        opacity="0.6"
+      />
+      <path
+        d="M10 110 Q50 80 90 10"
+        stroke="#b08d4f"
+        strokeWidth="0.8"
+        fill="none"
+        opacity="0.4"
+      />
       <circle cx="80" cy="22" r="3" fill="#b08d4f" opacity="0.5" />
       <circle cx="68" cy="36" r="2" fill="#b08d4f" opacity="0.4" />
       <circle cx="45" cy="63" r="2.5" fill="#b08d4f" opacity="0.45" />
@@ -84,8 +96,12 @@ export function EnvelopeOverlay({ initials, onOpen }: EnvelopeOverlayProps) {
         <div className="relative flex flex-col items-center gap-12 px-6">
           {/* Top label */}
           <p
-            className="text-xs tracking-[0.4em] uppercase animate-fade-up-in"
-            style={{ color: "rgba(176, 141, 79,0.7)", animationDelay: "0.3s", opacity: 0 }}
+            className="text-xs tracking-[0.4em] uppercase animate-fade-up-in text-center"
+            style={{
+              color: "rgba(176, 141, 79,0.7)",
+              animationDelay: "0.3s",
+              opacity: 0,
+            }}
           >
             {t.invitation}
           </p>
@@ -101,7 +117,7 @@ export function EnvelopeOverlay({ initials, onOpen }: EnvelopeOverlayProps) {
             aria-label="Apri l'invito"
           >
             <div
-              className="relative h-56 w-80 transition-transform duration-300 group-hover:-translate-y-1 sm:h-64 sm:w-[26rem]"
+              className="relative aspect-[10/7] w-[min(20rem,82vw)] transition-transform duration-300 group-hover:-translate-y-1 sm:aspect-[13/8] sm:w-[26rem]"
               style={{ perspective: "1200px" }}
             >
               {/* Drop shadow under envelope */}
@@ -126,7 +142,8 @@ export function EnvelopeOverlay({ initials, onOpen }: EnvelopeOverlayProps) {
                   width: "84%",
                   height: "94%",
                   top: "3%",
-                  background: "linear-gradient(180deg, #fbf6ec 0%, #f3ead8 100%)",
+                  background:
+                    "linear-gradient(180deg, #fbf6ec 0%, #f3ead8 100%)",
                   boxShadow: "0 10px 30px rgba(0,0,0,0.3)",
                   transform: opening ? "translateY(-64%)" : "translateY(0)",
                   transition: opening
@@ -179,7 +196,8 @@ export function EnvelopeOverlay({ initials, onOpen }: EnvelopeOverlayProps) {
               <div
                 className="absolute inset-0"
                 style={{
-                  background: "linear-gradient(180deg, #a1aa82 0%, #93a073 100%)",
+                  background:
+                    "linear-gradient(180deg, #a1aa82 0%, #93a073 100%)",
                   clipPath: "polygon(0 100%, 100% 100%, 50% 50%)",
                   zIndex: 7,
                 }}
@@ -190,7 +208,8 @@ export function EnvelopeOverlay({ initials, onOpen }: EnvelopeOverlayProps) {
               <div
                 className="absolute inset-0"
                 style={{
-                  background: "linear-gradient(165deg, #aeb693 0%, #9da779 100%)",
+                  background:
+                    "linear-gradient(165deg, #aeb693 0%, #9da779 100%)",
                   clipPath: "polygon(0 0, 100% 0, 50% 50%)",
                   transformOrigin: "top center",
                   transform: opening ? "rotateX(-162deg)" : "rotateX(0deg)",

@@ -128,7 +128,7 @@ export function GiftsSection({
               transition={{ duration: 0.4 }}
             >
               <p
-                className="text-sm leading-relaxed"
+                className="text-center text-sm leading-relaxed"
                 style={{ color: "#7c6f5a" }}
               >
                 {description}

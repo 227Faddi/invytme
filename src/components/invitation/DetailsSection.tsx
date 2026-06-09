@@ -48,7 +48,7 @@ function VenueCard({
         <div className="flex items-center gap-3">
           <div className="h-px w-8" style={{ background: "#b08d4f" }} />
           <p
-            className="text-xs uppercase tracking-[0.35em]"
+            className="text-xs uppercase tracking-[0.35em] text-center"
             style={{ color: "#b08d4f" }}
           >
             {type}
@@ -115,7 +115,7 @@ export function DetailsSection({ ceremony }: DetailsSectionProps) {
           transition={{ duration: 0.7 }}
         >
           <p
-            className="text-xs uppercase tracking-[0.4em]"
+            className="text-xs uppercase tracking-[0.4em] text-center"
             style={{ color: "#b08d4f" }}
           >
             {t.label}
