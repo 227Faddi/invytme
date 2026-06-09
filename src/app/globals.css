@@ -48,9 +48,9 @@
   /* Light beige luxury theme */
   --background: #f3e9d8;
   --foreground: #3a2f22;
-  --card: #faf3e6;
+  --card: #fdf8f0;
   --card-foreground: #3a2f22;
-  --popover: #faf3e6;
+  --popover: #fdf8f0;
   --popover-foreground: #3a2f22;
   --primary: #b08d4f;
   --primary-foreground: #faf3e6;
@@ -77,7 +77,7 @@
   /* Wedding palette — raw values for use in SVG and inline styles */
   --w-bg: #f3e9d8;
   --w-bg-soft: #ece0c9;
-  --w-card: #faf3e6;
+  --w-card: #fdf8f0;
   --w-border: rgba(176, 141, 79, 0.28);
   --w-gold: #b08d4f;
   --w-gold-bright: #c9a96e;

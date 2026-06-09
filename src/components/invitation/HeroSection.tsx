@@ -100,7 +100,7 @@ export function HeroSection({ groomName, brideName, date }: HeroSectionProps) {
             {brideName}
           </h1>
           <span
-            className="my-1 font-bold"
+            className="my-1 font-bold text-white"
             style={{
               fontFamily: "var(--font-serif)",
               fontStyle: "italic",

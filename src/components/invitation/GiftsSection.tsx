@@ -138,7 +138,7 @@ export function GiftsSection({
               <div
                 className="space-y-2 px-4 py-4 text-sm tracking-wider"
                 style={{
-                  background: "#f3e9d8",
+                  background: "#fbf5ea",
                   border: "1px solid rgba(176, 141, 79,0.25)",
                   fontFamily: "var(--font-mono)",
                   color: "#3a2f22",

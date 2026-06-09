@@ -30,7 +30,7 @@ function VenueCard({
     <motion.div
       className="flex w-full flex-col overflow-hidden rounded-[32px]"
       style={{
-        background: "#faf3e6",
+        background: "#fdf8f0",
         border: "1px solid rgba(176, 141, 79,0.18)",
         boxShadow: "0 8px 40px rgba(0,0,0,0.35)",
       }}

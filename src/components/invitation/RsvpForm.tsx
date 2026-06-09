@@ -221,7 +221,7 @@ export function RsvpForm() {
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.8, delay: 0.1 }}
           style={{
-            background: "#faf3e6",
+            background: "#fdf8f0",
             border: "1px solid rgba(176, 141, 79,0.18)",
             boxShadow: "0 8px 50px rgba(0,0,0,0.4)",
           }}

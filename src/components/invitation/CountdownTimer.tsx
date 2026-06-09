@@ -6,7 +6,12 @@ import { useSyncExternalStore } from "react";
 
 const t = weddingConfig.text.countdown;
 
-type TimeLeft = { giorni: number; ore: number; minuti: number; secondi: number };
+type TimeLeft = {
+  giorni: number;
+  ore: number;
+  minuti: number;
+  secondi: number;
+};
 
 const ZERO: TimeLeft = { giorni: 0, ore: 0, minuti: 0, secondi: 0 };
 
@@ -104,7 +109,7 @@ export function CountdownTimer({ targetDate }: { targetDate: Date }) {
 
         {/* Countdown boxes — connected row */}
         <div
-          className="grid w-full max-w-2xl grid-cols-4"
+          className="grid w-full max-w-2xl grid-cols-4 rounded-[32px]"
           style={{ border: "1px solid rgba(176, 141, 79,0.22)" }}
         >
           {units.map(({ label, value }, i) => (

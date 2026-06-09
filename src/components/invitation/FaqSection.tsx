@@ -68,7 +68,7 @@ export function FaqSection({ items }: { items: FaqItem[] }) {
                 value={`item-${i}`}
                 className="overflow-hidden rounded-[32px]"
                 style={{
-                  background: "#faf3e6",
+                  background: "#fdf8f0",
                   border: "1px solid rgba(176, 141, 79,0.18)",
                 }}
               >
